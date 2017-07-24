@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ayandeh
 
 > A Vue.js project
@@ -19,3 +20,6 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+=======
+# Ayande
+>>>>>>> 4b7d957636be2e0406b7661bea4bf10a4e35547f
