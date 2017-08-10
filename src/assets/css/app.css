@@ -1,0 +1,38 @@
+/* General */
+@font-face {
+    font-family: 'IRANSANS';
+    src: url('../font/woff/IRANSansWeb_Light.woff') format('woff'), url('../font/ttf/IRANSansWeb_Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'IRANSANS NORMAL';
+    src: url('../font/woff/IRANSansWeb.woff') format('woff'), url('../font/ttf/IRANSansWeb.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'IRANSANS BOLD';
+    src: url('../font/woff/IRANSansWeb_Bold.woff') format('woff'), url('../font/ttf/IRANSansWeb_Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Number';
+    src: url('../font/woff/jw-icons.woff') format('woff'), url('../font/ttf/jw-icons.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lalezar';
+    src: url('../font/woff/Lalezar-Regular.woff') format('woff'), url('../font/ttf/Lalezar-Regular.ttf') format('truetype');
+}
+
+html,body{
+    font-family: 'IRANSANS';
+    height: 100%;
+}
+
+::selection{
+    background: #eee;
+}
+
+#app{
+    height: 100%;
+}

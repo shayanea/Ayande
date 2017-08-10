@@ -4,16 +4,24 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import Bootstrap from './assets/bootstrap.min.css'
-import BootstrapRTL from './assets/bootstrap.rtl.css'
-import Style from './assets/app.css'
+import Bootstrap from './assets/css/bootstrap.min.css'
+import BootstrapRTL from './assets/css/bootstrap.rtl.css'
+import Style from './assets/css/app.css'
+
+import Trend from 'vuetrend'
+import VueHighcharts from 'vue-highcharts';
+import store from './store'
 
 Vue.config.productionTip = false
+
+Vue.use(Trend)
+Vue.use(VueHighcharts);
 
 /* eslint-disable no-new */
 new Vue({
 	el: '#app',
 	router,
+	store,
 	template: '<App/>',
 	components: { App }
 })
