@@ -115,7 +115,7 @@
                     <a href="" class="forget_pass_btn">رمز عبـور خود را فراموش کردین؟</a>
                 </div>
             </div>
-            <div class="col-md-6 hidden-sm hidden-xs bg_color">
+            <div class="col-md-6 col-sm-6 hidden-xs bg_color">
                 <div class="banner">
                     <div class="slogan">
                         برترین بانک

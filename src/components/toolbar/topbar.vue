@@ -17,7 +17,7 @@ export default {
     name:'topbar',
     data () {
         return{
-
+            
         }
     },
     components: {
@@ -31,15 +31,16 @@ export default {
 
 <style>
 .topbar{
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 24px;
+    right: 0;
     left: 0;
     padding: 15px 25px;
     background: #fff;
     direction: rtl;
     height: 65px;
-    box-shadow: 0 5px 20px 10px rgba(154, 154, 154, 0.1);
+    box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.20);
+    z-index: 1000;
 }
 
 .topbar .logo{

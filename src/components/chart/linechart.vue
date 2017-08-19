@@ -1,12 +1,15 @@
 <template>
-    <div class="column_box col-md-6 col-sm-6 col-xs-12">
+    <div class="column_box" :class="{'col-md-12 col-sm-12 col-xs-12': this.Full, 'col-md-6 col-sm-12 col-xs-12': !this.Full}">
         <div class="column_box_holer">
+            <COptions @fullcolumn="FullColumn" ></COptions>
             <highcharts :options="options" ref="highcharts"></highcharts> 
         </div>
     </div>
 </template>
 
 <script>
+import COptions from './options'
+
 export default {
     name: 'linechart',
     props: {
@@ -45,23 +48,29 @@ export default {
     },
     data() {
         return {
+            Full: false,
+            HighChart: null,
             options: {
                 credits: {
                     enabled: false
                 },
                 chart: {
                     height: (9 / 16 * 100) + '%',
-                    type: this.type
+                    type: this.type,
+                    reflow: true,
+                    className: 'line_chart'
                 },
                 title: {
                     text: this.title,
-                    align: 'right'
+                    align: 'right',
+                    y: 5
                 },
                 tooltip: {
-                    backgroundColor: "#fff",
-                    padding:15,
-                    followPointer: true,
-                    valueSuffix: this.suffix
+                    backgroundColor: null,
+                    borderWidth: 0,
+                    shadow: false,
+                    useHTML: true,
+                    pointFormat: '<div class="value">{point.y} '+ this.suffix +'</div>'
                 },
                 xAxis: {
                     categories: this.timeline,
@@ -100,7 +109,7 @@ export default {
                         point: {
                             events: {
                                 click: function () {
-                                    alert('Category: ' + this.category + ', value: ' + this.y);
+                                    // alert('تاریخ: ' + this.category + ',' + this.y);
                                 }
                             }
                         },
@@ -130,16 +139,15 @@ export default {
                         lineWidth: 5
                     }
                 },
-                legend: {
-                    rtl: false
-                },
                 series: this.PrepareData()
             }
         }
     },
+    components: {
+        COptions
+    },
     methods: {
         PrepareData: function() {
-            // for(let i = 0; i < )
             if(typeof this.list.series1 !== "undefined"){
                 return [{
                     name: this.labeltext,
@@ -165,6 +173,13 @@ export default {
                 }]
             }
         },
+        FullColumn: function(status) {
+            this.Full = status;
+            let chart = this.$refs.highcharts.chart;
+            setTimeout(function(){
+                chart.reflow()
+            },300);
+        }
     }
 }
 </script>
@@ -172,12 +187,15 @@ export default {
 <style>
 .column_box {
     margin-bottom:30px;
+    transition: width .3s ease;
 }
 
 .column_box_holer{
     border-radius: 6px;
     background: #fff;
     padding: 30px;
+    position: relative;
+    overflow: hidden;
 }
 
 .highcharts-title tspan{
@@ -187,6 +205,7 @@ export default {
 
 .highcharts-container svg {
     font-family: "IRANSANS"!important;
+    transition: width .3s ease, height .3s ease;
 }
 
 .highcharts-axis-labels text {
@@ -195,7 +214,8 @@ export default {
 }
 
 .highcharts-xaxis-labels text,
-.highcharts-data-label text tspan{
+.highcharts-data-label text tspan,
+.pie_chart .highcharts-legend-item text tspan{
     font-family: 'Number'!important;
 }
 
@@ -203,5 +223,52 @@ export default {
     font-size:10px!important;
     font-weight: 100!important;
     fill: #666!important;
+}
+
+.highcharts-tooltip{
+    text-align: right;
+}
+
+.highcharts-tooltip span{
+    background: rgba(255,255,255,0.85);
+    border: 0px solid silver;
+    border-radius: 6px;
+    box-shadow: -2px 2px 2px 0px rgba(160, 160, 160, 0.39);
+    padding: 10px 20px;
+    position: relative;
+    margin-left: -2px!important;
+}
+
+/* .highcharts-tooltip span:after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 5px);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 5px 0 5px;
+    border-color: #fff transparent transparent transparent;
+} */
+
+.highcharts-tooltip span span{
+    color: #999;
+    font-size: 10px;
+    font-family: 'Number'!important;
+    margin-bottom: 5px;
+    display: inline-block;
+    box-shadow: none;
+    border-radius: 0;
+    border:0;
+    padding: 0;
+}
+
+.highcharts-tooltip span span:after{
+    display: none;
+}
+
+.highcharts-tooltip .value{
+    font-family: "IRANSANS BOLD"!important;
+    direction: ltr;
 }
 </style>

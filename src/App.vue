@@ -1,14 +1,15 @@
 <template>
 	<v-bar wrapper="wrapper"
-	vBar=""
+	vBar="custome_scrollbar_y"
 	vBarInternal=""
 	hBar=""
-	hBarInternal="">
+	hBarInternal=""
+	@top="handleScroll">
 		<div id="app">
 			<!-- your content -->
-			<router-view></router-view> 		 
+			<router-view></router-view> 	
 		</div>
-	</v-bar>
+	</v-bar>	 
 </template>
 
 <script>
@@ -23,12 +24,20 @@ export default {
 	},
 	components:{
 		VBar
+	},
+	methods: {
+        handleScroll (top) {
+			if(top>= 30){
+				this.$store.commit('ScrollEvent',true);
+			}else{
+				this.$store.commit('ScrollEvent',false);
+			}
+        }
 	}
 }
 </script>
 
 <style>
-/* @import url('./assets/bootstrap.min.css'); */
 .wrapper{
 	height: 100%;
 	width: 100%;

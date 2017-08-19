@@ -35,4 +35,192 @@ html,body{
 
 #app{
     height: 100%;
+    transition: filter .2s ease;
 }
+
+.custome_scrollbar_x{
+    width: calc(100% - 3px)!important;
+    height: 3px!important;
+}
+
+.custome_scrollbar_y{
+    height: calc(100% - 3px)!important;
+    width: 3px!important;
+}
+
+.margin_top_20{
+    margin-top: 20px;
+}
+
+.custome_modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding-bottom: 30px;
+    direction: rtl;
+    border-radius: 6px;
+    z-index: 99999;
+}
+
+.custome_modal .popup_header{
+    padding: 5px 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.custome_modal .popup_header h2{
+    font-size: 1em;
+    margin-top: 10px;
+    color: #222;
+    margin-right: 20px;
+}
+
+.custome_modal .popup_header h2 span{
+    color:#222;
+    font-family: "IRANSANS NORMAL";
+    margin-right: 10px;
+}
+
+.custome_modal .form{
+    margin: 30px auto;
+    padding: 0 40px;
+    display: block;
+}
+
+.custome_modal .btn {
+    float: left;
+    outline: none!important;
+    margin-top: 30px;
+    box-shadow: none!important;
+}
+
+.custome_modal .save {
+    background: #2ECC71;
+    padding: 6px 40px;
+    border: 0;
+    margin-right: 20px;
+    color: #fff;
+    transition: opacity .3s ease;
+}
+
+.custome_modal .close {
+    background: #eee;
+    padding: 6px 40px;
+    border: 0;
+    margin-right: 20px;
+    color: #999;
+    transition: opacity .3s ease;
+}
+
+.custome_modal .btn:hover {
+    opacity: .8;
+    transition: opacity .3s ease;
+}
+
+.custome_modal form{
+    margin: 30px auto;
+    padding: 0 40px;
+    display: block;
+}
+
+.custome_modal .form-group label {
+    margin-left: 20px;
+    min-width: 100px;
+}
+
+.custome_modal .form-control:first-child{
+    min-width: 316px;
+}
+
+.custome_modal .form-control {
+    color: #222;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #e1e1e1;
+    background: #fbfbfb;
+    font-size: 14px;
+    min-width: 350px;
+}
+
+.custome_modal textarea.form-control{
+    min-width: 350px!important;
+    font-size: 12px;
+    resize: none;
+}
+
+.custome_modal select.form-control{
+    min-width: 315px;
+}
+
+.custome_modal .add_new_db{
+    display: inline;
+    padding: 3px 12px;
+    max-height: 34px;
+    background: #eee;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 1.3em;
+    position: relative;
+}
+
+.custome_modal .add_new_db:after{
+    content: 'درج پایگاه داده جدید';
+    position: absolute;
+    left: 50%;
+    top: -37px;
+    padding: 6px 12px;
+    height: 27px;
+    border-radius: 4px;
+    background: #444;
+    color: #fff;
+    font-size: 10px;
+    width: 110px;
+    text-align: center;
+    transform: translate(-50%,0);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease,visibility .3s ease; 
+}
+
+.custome_modal .add_new_db:before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 4px 0 4px;
+    border-color: #444 transparent transparent transparent;
+    transform: translate(-50%,0);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease,visibility .3s ease; 
+}
+
+.custome_modal .add_new_db:hover:after,
+.custome_modal .add_new_db:hover::before{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .3s ease,visibility .3s ease; 
+}
+
+.custome_modal .add_new_db:hover{
+    background: #ffc800;
+}
+
+.custome_modal .input-group-addon{
+    background: #2ecc71;
+    border: 0;
+    color: #fff;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+/* .custome_scrollbar .bar--horizontal-internal{
+    background: #fff!important;
+} */

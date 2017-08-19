@@ -1,13 +1,13 @@
 <template>
     <div class="city_stock">
-        <div class="total_stock">
+         <div class="total_stock">
             <div class="total_header">موجـودی کـل</div>
             <span class="dropdown_icon"></span>
-        </div>
+        </div> 
         <v-bar wrapper="chart_container"
         vBar=""
         vBarInternal=""
-        hBar=""
+        hBar="custome_scrollbar_x"
         hBarInternal="">
             <div class="charts" v-for="(item, index) of list" :key="index">
                 <svg xmlns="http://www.w3.org/2000/svg" class="more" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
@@ -142,12 +142,11 @@ export default {
 
 .city_stock .chart_container{
     white-space:nowrap;
-    overflow-x:auto;
-    direction: rtl;
     padding: 10px 25px;
-    margin-right: 100px;
-    width: calc(100% - 100px);
-    height: 150px;
+    margin-right: 100px; 
+    width: calc(100% - 100px); 
+    height: 145px;
+    direction: rtl;
 }
 
 .city_stock .chart_container .charts{
@@ -173,7 +172,7 @@ export default {
     transition: background .3s ease, box-shadow .3s ease, padding .2s ease;
     box-shadow: 0 2px 20px 2px rgba(154, 154, 154, 0.3);
     z-index: 99;
-    padding: 25px 10px 30px;
+    padding: 25px 10px 35px;
 }
 
 .city_stock .chart_container .charts .city_name,
@@ -213,6 +212,12 @@ export default {
     stroke-width: 3px;
     width: 120px;
     margin-top: 10px;
+}
+
+@media(max-width:768px){
+    .city_stock{
+        display: none;
+    }
 }
 </style>
 

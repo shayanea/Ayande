@@ -15,16 +15,28 @@
 
          <!-- WorkSpace -->
         <WorkSpace :list="list" :show="this.$store.state.showdashboardlist"></WorkSpace>
+
+        <!-- Create Model -->
+        <CreateModel :show="this.$store.state.showcreatemodel"></CreateModel>
+
+        <!-- Create View -->
+        <CreateView :show="this.$store.state.showcreateview"></CreateView>
+
+        <!-- Background Wrapper -->
+        <BgWrapper :show="this.$store.state.showbgwrapper"></BgWrapper>
     </div>
 </template>
  
 <script>
 import Topbar from '../components/toolbar/topbar'
-import CityStock from '../components/toolbar/citystock'
-import Dlist from '../components/toolbar/dlist'
-import WorkSpace from '../components/workspace'
+import CityStock from '../components/stock/citystock'
+import Dlist from '../components/dashboard/dlist'
+import WorkSpace from '../components/dashboard/workspace'
 import Notifications from '../components/notificationlist'
-import Board from '../components/board'
+import Board from '../components/dashboard/board'
+import BgWrapper from '../components/bgwrapper'
+import CreateModel from '../components/model/popup'
+import CreateView from '../components/view/popup'
 
 export default {
     name:'main',
@@ -53,9 +65,10 @@ export default {
         WorkSpace,
         Dlist,
         Notifications,
-        Board
-    },
-    methods: {
+        Board,
+        BgWrapper,
+        CreateModel,
+        CreateView
     }
 }
 </script>
@@ -65,16 +78,21 @@ export default {
     height: 100%;
     width:100%;
     background: #f6f7fb;
-    padding-top: 65px;
+    padding-top: 125px;
     transition: filter .2s ease;
 }
 
 .blur{
-    -webkit-filter: blur(15px);
-    -moz-filter: blur(15px);
-    filter: blur(15px);
+    -webkit-filter: blur(8px);
+    -moz-filter: blur(8px);
+    filter: blur(8px);
     transition: filter .2s ease;
     position: fixed;
     z-index: 9;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
 }
 </style>

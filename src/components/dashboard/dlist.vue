@@ -11,6 +11,14 @@
                 <div class="dlist_box_name">{{item.name}}</div>
             </li>
         </ul>
+        <button class="btn newdash_btn" @click="ShowCreateModel">
+            <div class="text">مدل جدید</div>
+            <span class="plus_icon"></span>
+        </button>
+        <button class="btn newdash_btn" @click="ShowView">
+            <div class="text">نمای جدید</div>
+            <span class="plus_icon"></span>
+        </button>
         <button class="btn newdash_btn" @click="ShowWorkSpace">
             <div class="text">دشبورد جدید</div>
             <span class="plus_icon"></span>
@@ -33,7 +41,20 @@ export default {
                 total:3
             }
         }
-    },methods: {
+    },
+    methods: {
+        ShowView: function() {
+            if(!this.$store.state.showbgwrapper){
+                this.$store.commit('ShowBgWrapper');
+            }
+            this.$store.commit('ShowCreateView');
+        },
+        ShowCreateModel: function() {
+            if(!this.$store.state.showbgwrapper){
+                this.$store.commit('ShowBgWrapper');
+            }
+            this.$store.commit('ShowCreateModel');
+        },
         ShowWorkSpace: function() {
             this.$store.commit('ShowDashboardList');
         }
@@ -45,8 +66,11 @@ export default {
 .dashboard_list{
     background: #535353;
     padding: 15px 25px;
-    width:100%;
-    position: relative;
+    position: fixed;
+    top: 65px;
+    right: 0;
+    left: 0;
+    z-index: 999;
     display: block;
     direction: rtl;
 }
@@ -64,10 +88,11 @@ export default {
     width: 15px;
     border-radius: 3px;
     text-align: center;
-    line-height: 18px;
+    line-height: 15px;
     color: #fff;
     font-size: 10px;
     background: #f63756;
+    font-family: 'Number'!important;
 }
 
 .dashboard_list .dlist_box{
@@ -128,13 +153,17 @@ export default {
 .dashboard_list .newdash_btn{
     position: relative;
     color: #333;
-    background: #dfa300;
-    padding: 3px 30px 3px 20px;
+    background: rgb(128,128,128);
+    padding: 6px 30px 6px 20px;
     float: left;
     outline: none!important;
     box-shadow: none;
     font-size: 13px;
     font-weight: bold;
+    margin-right: 15px;
+    font-weight: bold;
+    font-family: "IRANSANS NORMAL";
+    transition:  background .3s ease;
 }
 
 .dashboard_list .newdash_btn .text{
@@ -142,9 +171,15 @@ export default {
     transition: opacity .3s ease, margin-left .3s ease;
 }
 
+.dashboard_list .newdash_btn:hover{
+    background: #dca000;
+    transition:  background .3s ease;
+}
+
 .dashboard_list .newdash_btn:hover .text{
     opacity: 0;
     margin-left: -100%;
+    
     transition: opacity .3s ease, margin-left .3s ease;
 }
 

@@ -1,30 +1,28 @@
 <template>
-    <div class="profile">
-        <click-outside :handler="Hide">
-            <div class="profile_options" @click="ShowDropDown">
-                <div class="name">
-                    {{profile.name}}
-                    <span class="dropdown_icon"></span>
-                </div>
-                <!-- :style="{ 'background-image': 'url(' + profile.image + ')' }"  -->
-                <div class="profile_image" ></div>
-                <ul class="profile_dropdown" :class="{'active' : dropdown}">
-                    <li>
-                        <a>پروفایـل</a>
-                        <span class="user_icon"></span>
-                    </li>
-                    <li>
-                        <a>تنظیمات</a>
-                        <span class="setting_icon"></span>
-                    </li>
-                    <li>
-                        <a @click="Logout">خروج</a>
-                        <span class="logout_icon"></span>
-                    </li>
-                </ul>
+    <click-outside :handler="Hide" class="profile">
+        <div class="profile_options" @click="ShowDropDown">
+            <div class="name">
+                {{profile.name}}
+                <span class="dropdown_icon"></span>
             </div>
-        </click-outside>
-    </div>
+            <!-- :style="{ 'background-image': 'url(' + profile.image + ')' }"  -->
+            <div class="profile_image" ></div>
+            <ul class="profile_dropdown" :class="{'active' : dropdown}">
+                <li>
+                    <a>پروفایـل</a>
+                    <span class="user_icon"></span>
+                </li>
+                <li>
+                    <a>تنظیمات</a>
+                    <span class="setting_icon"></span>
+                </li>
+                <li>
+                    <a @click="Logout">خروج</a>
+                    <span class="logout_icon"></span>
+                </li>
+            </ul>
+        </div>
+    </click-outside>
 </template>
 
 <script>
@@ -37,7 +35,7 @@ export default {
     data () {
         return {
             profile:{
-                name:'محمد کاضمی',
+                name:'آیت حسینی',
                 image:''
             },
             dropdown:false

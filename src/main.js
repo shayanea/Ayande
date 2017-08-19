@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import lodash from 'lodash'
+
 import Bootstrap from './assets/css/bootstrap.min.css'
 import BootstrapRTL from './assets/css/bootstrap.rtl.css'
 import Style from './assets/css/app.css'

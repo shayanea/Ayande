@@ -1,19 +1,19 @@
 <template>
     <ul class="menu">
         <li>
-            <a href="#">چارت‌های قبل</a>
+            <a>لیست دشبورد ها</a>
             <span class="dropdown_icon"></span>
         </li>
         <li>
-            <a href="#">لیست</a>
+            <a>لیست مودل ها</a>
             <span class="dropdown_icon"></span>
         </li>
         <li>
-            <a href="#">نمودار</a>
+            <a>لیست نما ها</a>
             <span class="dropdown_icon"></span>
         </li>
         <li>
-            <a href="#">تنظیمات</a>
+            <a>مدیریت کاربران</a>
         </li>
     </ul>
 </template>
@@ -73,6 +73,12 @@ export default {
 @media(min-wdith:1444px){
     .menu li a{
         font-size: 14px;
+    }
+}
+
+@media(max-width:768px){
+    .menu{
+        display: none;
     }
 }
 </style>

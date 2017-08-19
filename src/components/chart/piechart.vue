@@ -1,5 +1,5 @@
 <template>
-    <div class="column_box col-md-6 col-sm-6 col-xs-12">
+    <div class="column_box" :class="{'col-md-12 col-sm-12 col-xs-12': this.Full, 'col-md-6 col-sm-12 col-xs-12': !this.Full}">
         <div class="column_box_holer">
             <highcharts :options="options" ref="highcharts"></highcharts> 
         </div>
@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import COptions from './options'
+
 export default {
     name: 'piechart',
     props: {
@@ -45,31 +47,46 @@ export default {
     },
     data() {
         return {
+            Full: false,
+            HighChart: null,
             options: {
                 credits: {
                     enabled: false
                 },
-                colors: ['#7cb5ec', '#f7a35c', '#90ee7e', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee',
-                '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+                colors: ['#FFF176', '#FFD54F', '#FFB74D', '#FF8A65', '#FFEB3B', '#FFC107', '#FF9800',
+                '#FF5722', '#FBC02D', '#FFA000', '#F57C00'],
                 chart: {
                     height: (9 / 16 * 100) + '%',
                     plotBackgroundColor: null,
                     plotBorderWidth: null,
                     plotShadow: false,
-                    type: this.type
+                    type: this.type,
+                    className: 'pie_chart'
                 },
                 title: {
                     text: this.title,
-                    align: 'right'
+                    align: 'right',
+                    y: 5
                 },
                 tooltip: {
-                    backgroundColor: "#fff",
-                    padding:15,
-                    pointFormat: '{series.name} : <b> {point.percentage:.1f}</b>'
+                    backgroundColor: null,
+                    borderWidth: 0,
+                    shadow: false,
+                    useHTML: true,
+                    pointFormat: '<div class="value">{point.y}</div>'
                 },
-                
+                legend: {
+                    align: 'right',
+                    padding: 3,
+                    itemMarginTop: 5,
+                    itemMarginBottom: 5,
+                    itemStyle: {
+                        lineHeight: '14px'
+                    }
+                },
                 plotOptions: {
                     pie: {
+                        borderWidth: 0,
                         allowPointSelect: true,
                         cursor: 'pointer',
                         dataLabels: {
@@ -86,6 +103,14 @@ export default {
                 }]
             }
         }
+    },
+    components: {
+        COptions
+    },
+    mounted() {
+        this.HighChart = this.$refs.highcharts;
+    },
+    methods: {
     }
 }
 </script>

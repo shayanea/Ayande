@@ -46,10 +46,11 @@ export default {
     width: 15px;
     border-radius: 3px;
     text-align: center;
-    line-height: 18px;
+    line-height: 15px;
     color: #fff;
     font-size: 10px;
     background: #f63756;
+    font-family: 'Number'!important;
 }
 </style>
 
