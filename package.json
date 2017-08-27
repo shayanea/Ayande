@@ -14,6 +14,7 @@
     "onclick-outside": "^0.1.1",
     "v-bar": "^3.0.0",
     "vue": "^2.3.3",
+    "vue-color": "^2.3.2",
     "vue-highcharts": "0.0.10",
     "vue-router": "^2.3.1",
     "vuetrend": "^0.2.2",

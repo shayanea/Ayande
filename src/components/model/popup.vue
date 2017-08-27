@@ -1,5 +1,5 @@
 <template>
-    <div v-if="show">
+    <div v-if="this.$store.state.showcreatemodel">
         <!-- Database Popup -->
         <Database :show="showdb" :list="database" @closepopup="CloseDatabasePicker" @selectdatasbe="SelectDatabase"></Database>
         <!-- Grid Popup -->
@@ -25,12 +25,6 @@ import Config from './config'
 
 export default {
     name:'popup',
-    props: {
-        show: {
-            required: true,
-            default: false
-        }
-    },
     data () {
         return {
             showdb: true,
@@ -98,7 +92,8 @@ export default {
     methods: {
         CloseDatabasePicker: function(value) {
             if(value){
-                this.showdb = false;
+                this.$store.commit('ShowCreateModel');
+                this.$store.commit('ShowBgWrapper');
             }
         },
         SelectDatabase: function(id) {

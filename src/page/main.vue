@@ -17,10 +17,10 @@
         <WorkSpace :list="list" :show="this.$store.state.showdashboardlist"></WorkSpace>
 
         <!-- Create Model -->
-        <CreateModel :show="this.$store.state.showcreatemodel"></CreateModel>
+        <CreateModel></CreateModel>
 
         <!-- Create View -->
-        <CreateView :show="this.$store.state.showcreateview"></CreateView>
+        <CreateView></CreateView>
 
         <!-- Background Wrapper -->
         <BgWrapper :show="this.$store.state.showbgwrapper"></BgWrapper>

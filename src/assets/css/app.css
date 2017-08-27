@@ -155,7 +155,8 @@ html,body{
     min-width: 315px;
 }
 
-.custome_modal .add_new_db{
+.custome_modal .add_new_db,
+.custome_modal .add_new_filter{
     display: inline;
     padding: 3px 12px;
     max-height: 34px;
@@ -167,8 +168,8 @@ html,body{
     position: relative;
 }
 
-.custome_modal .add_new_db:after{
-    content: 'درج پایگاه داده جدید';
+.custome_modal .add_new_db:after,
+.custome_modal .add_new_filter:after{
     position: absolute;
     left: 50%;
     top: -37px;
@@ -186,7 +187,16 @@ html,body{
     transition: opacity .3s ease,visibility .3s ease; 
 }
 
-.custome_modal .add_new_db:before{
+.custome_modal .add_new_db:after{
+    content: 'درج پایگاه داده جدید';
+}
+
+.custome_modal .add_new_filter:after{
+    content: 'درج فیلتر جدید';
+}
+
+.custome_modal .add_new_db:before,
+.custome_modal .add_new_filter:before{
     content: '';
     position: absolute;
     left: 50%;
@@ -203,13 +213,16 @@ html,body{
 }
 
 .custome_modal .add_new_db:hover:after,
-.custome_modal .add_new_db:hover::before{
+.custome_modal .add_new_db:hover::before,
+.custome_modal .add_new_filter:hover:after,
+.custome_modal .add_new_filter:hover::before{
     opacity: 1;
     visibility: visible;
     transition: opacity .3s ease,visibility .3s ease; 
 }
 
-.custome_modal .add_new_db:hover{
+.custome_modal .add_new_db:hover,
+.custome_modal .add_new_filter:hover{
     background: #ffc800;
 }
 
@@ -218,6 +231,18 @@ html,body{
     border: 0;
     color: #fff;
     font-size: 1.3em;
+    cursor: pointer;
+}
+
+.custome_modal .colorpicker_bg{
+    color: #222;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #e1e1e1;
+    background: #fbfbfb;
+    min-width: 315px;
+    height: 34px;
     cursor: pointer;
 }
 
