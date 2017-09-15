@@ -100,21 +100,12 @@
             <div class="col-md-6 col-sm-6 col-xs-12 login-column">
                 <div class="horizantal-center">
                     <h2 class="form-title">سامانـه‌ی نبض آینـده</h2>
-                    <form class="col-md-7 col-sm-7 col-xs-12" @submit.prevent="Login">
-                        <input name="bnkuser" type="text" v-model="user.username" maxlength="70" class="form-control" placeholder="شناسه کاربری" />
-                        <div class="password-holder">
-                            <input name="bnkpsw" v-model="user.password" type="password" maxlength="150" class="form-control" placeholder="گذرواژه" @keyup="PasswordLength" v-if="!HaveClass" />
-                            <input name="bnkpsw" v-model="user.password" type="text" maxlength="150" class="form-control" placeholder="گذرواژه" @keyup="PasswordLength" v-if="HaveClass" />
-                            <span v-show="Show" @click="ShowPass" :class="{'eye': HaveClass}"></span>
-                        </div>
-                        <button type="submit" @click="Login" class="btn btn-block login-btn">ورود به سیستم</button>
-                        <div class="checkbox remember-me">
-                            <label>
-                                <input type="checkbox" v-model="user.remember"> اطلاعات ورود من به خاطر سپرده شود.
-                            </label>
-                        </div>
-                        <p class="forget-pass-text">گذرواژه خود را فراموش کرده اید؟</p>
-                        <router-link class="forget-pass-btn" :to="{ path: 'forgetpass'}">برای بازیابی گذرواژه خود کلیک کنید.</router-link>
+                    <form class="col-md-7 col-sm-7 col-xs-12" @submit.prevent="ChangePass">
+                        <p class="changepass-decription">
+                            به منظور بازیابی گذرواژه ی خود،آدرس ایمیل یا شناسه ی کاربری خود را وارد کنید. در صورت صحیح بودن آدرس ایمیل یا شناسه ورود شما ،ایمیلی حاوی لینک تغییر گذرواژه به آدرس ایمیل حساب کاربری شما ارسال خواهد شد.
+                        </p>
+                        <input name="bnkuser" type="text" v-model="emailorusername" maxlength="70" class="form-control" placeholder="آدرس ایمیل یا شناسه کاربری خود را وارد کنید" />
+                        <button type="submit" @click="Login" class="btn btn-block login-btn">ارسال لینک تغییر گذرواژه</button>
                     </form>
                 </div>
             </div>
@@ -135,46 +126,15 @@
 
 <script>
 export default {
-    name: "login",
+    name: "forgetpass",
     data() {
         return {
-            user: {
-                username: '',
-                password: '',
-                type: 'password',
-                remember: false
-            },
-            Show: false,
-            HaveClass: false
+            emailorusername: ''
         }
     },
     methods: {
-        PasswordLength: function (e) {
-            if (this.user.password.length > 0) {
-                this.Show = true;
-            } else {
-                this.Show = false
-            }
-        },
-        ShowPass: function () {
-            this.HaveClass = !this.HaveClass;
-        },
-        Login: function () {
-            this.$router.push({ path: '/main' });
-        },
+        ChangePass: function (e) {
+        }
     }
 }
 </script>
-
-<style>
-.login-holder .bg-color {
-    background-color: #eeb42f;
-    height: 100%;
-    border-radius: 10px 0 0 10px;
-    background-image: url('../assets/image/Back.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-</style>
-

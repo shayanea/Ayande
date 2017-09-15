@@ -1,0 +1,225 @@
+[
+    {
+        "id": 0,
+        "name": "",
+        "_cssClass": "minimal_node",
+        "_color": "#666",
+        "_labelClass": "node_title"
+    },
+    {
+        "id": 1000,
+        "name": "",
+        "_cssClass": "minimal_node",
+        "_color": "#666",
+        "_labelClass": "node_title"
+    },
+    {
+        "id": 1001,
+        "name": "",
+        "_cssClass": "minimal_node",
+        "_color": "#666",
+        "_labelClass": "node_title"
+    },
+    {
+        "id": 1002,
+        "name": "",
+        "_cssClass": "minimal_node",
+        "_color": "#666",
+        "_labelClass": "node_title"
+    },
+    {
+        "id": 1,
+        "name": "مشتری",
+        "_cssClass": "main_node",
+        "_color": "#666",
+        "_labelClass": "node_title"
+    },
+    {
+        "id": 2,
+        "name": "محصول",
+        "_cssClass": "main_node",
+        "_color": "#666",
+        "_labelClass": "node_title"
+    },
+    {
+        "id": 3,
+        "name": "کانال",
+        "_cssClass": "main_node",
+        "_color": "#666",
+        "_labelClass": "node_title"
+    },
+    {
+        "id": 4,
+        "name": "کارمزدی",
+        "_color": "#666",
+        "parent": 2
+    },
+    {
+        "id": 5,
+        "name": "اعتباری",
+        "_color": "#666",
+        "parent": 2
+    },
+    {
+        "id": 6,
+        "name": "تجهیز منابع",
+        "_color": "#666",
+        "parent": 2
+    },
+    {
+        "id": 7,
+        "name": "ارزش آفرین",
+        "_color": "#666",
+        "parent": 2
+    },
+    {
+        "id": 8,
+        "name": "مبادلات اسناد تجاری",
+        "_color": "#666",
+        "parent": 4
+    },
+    {
+        "id": 9,
+        "name": "ضمانت نامه",
+        "_color": "#666",
+        "parent": 4
+    },
+    {
+        "id": 10,
+        "name": "کارمزدهای ارایه خدمات بانکی",
+        "_color": "#666",
+        "parent": 4
+    },
+    {
+        "id": 11,
+        "name": "مشارکتی",
+        "_color": "#666",
+        "parent": 5
+    },
+    {
+        "id": 12,
+        "name": "مبادله ای",
+        "_color": "#666",
+        "parent": 5
+    },
+    {
+        "id": 13,
+        "name": "کارت",
+        "_color": "#666",
+        "parent": 6
+    },
+    {
+        "id": 14,
+        "name": "اوراق بهادر",
+        "_color": "#666",
+        "parent": 6
+    },
+    {
+        "id": 15,
+        "name": "سایر محصولات و خدمات",
+        "_color": "#666",
+        "parent": 6
+    },
+    {
+        "id": 16,
+        "name": "صندوق های سرمایه گذاری",
+        "_color": "#666",
+        "parent": 6
+    },
+    {
+        "id": 17,
+        "name": "سپرده بلند مدت",
+        "_color": "#666",
+        "parent": 6
+    },
+    {
+        "id": 18,
+        "name": "سپرده کوتاه مدت",
+        "_color": "#666",
+        "parent": 6
+    },
+    {
+        "id": 19,
+        "name": "سپرده قرض الحسنه",
+        "_color": "#666",
+        "parent": 6
+    },
+    {
+        "id": 20,
+        "name": "جاری",
+        "_color": "#666",
+        "parent": 6
+    },
+    {
+        "id": 21,
+        "name": "محصولات ارزش آفرین برای تمام مشتریان",
+        "_color": "#666",
+        "parent": 7
+    },
+    {
+        "id": 22,
+        "name": "محصولات ارزش آفرین مشتریان خارج از کشور",
+        "_color": "#666",
+        "parent": 7
+    },
+    {
+        "id": 23,
+        "name": "محصولات ارزش آفرین مشتریان vip",
+        "_color": "#666",
+        "parent": 7
+    },
+    {
+        "id": 24,
+        "name": "شعبه",
+        "_color":"#666",
+        "parent": 3
+    },
+    {
+        "id": 25,
+        "name": "ATM",
+        "_color":"#666",
+        "parent": 3
+    },
+    {
+        "id": 26,
+        "name": "POS",
+        "_color":"#666",
+        "parent": 3
+    },
+    {
+        "id": 27,
+        "name": "اینترنت بانک",
+        "_color":"#666",
+        "parent": 3
+    },
+    {
+        "id": 28,
+        "name": "موبایل بانک",
+        "_color":"#666",
+        "parent": 3
+    },
+    {
+        "id": 29,
+        "name": "تلفن بانک",
+        "_color":"#666",
+        "parent": 3
+    },
+    {
+        "id": 30,
+        "name": "مشتری کل",
+        "_color":"#666",
+        "parent": 1
+    },
+    {
+        "id": 31,
+        "name": "مشتری جدید",
+        "_color":"#666",
+        "parent": 1
+    },
+    {
+        "id": 32,
+        "name": "مشتری قدیم",
+        "_color":"#666",
+        "parent": 1
+    }
+]
