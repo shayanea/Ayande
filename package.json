@@ -18,6 +18,7 @@
     "vue-d3-network": "^0.1.8",
     "vue-highcharts": "0.0.10",
     "vue-router": "^2.3.1",
+    "vuejs-uib-pagination": "^1.0.2",
     "vuetrend": "^0.2.2",
     "vuex": "^2.3.1"
   },

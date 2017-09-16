@@ -7,17 +7,24 @@ import NetworkGraph from '@/page/networkgraph'
 import DashboardList from '@/page/dashboardlist'
 import NewDashboard from '@/page/addnewdashboard'
 import ModelList from '@/page/modellist'
+import ViewList from '@/page/viewlist'
+import UserList from '@/page/userlist'
 // import Network from '@/page/network'
 
 
 // import ModelList from '@/page/modellist'
-// import ViewList from '@/page/viewlist'
+
 // import Active from '@/page/active'
 
 Vue.use(Router)
 
 export default new Router({
 	routes: [
+		{
+			path: '/',
+			name: 'main',
+			component: Main
+		},
 		{
 			path: '/login',
 			name: 'login',
@@ -27,11 +34,6 @@ export default new Router({
 			path: '/forgetpass',
 			name: 'forgestpass',
 			component: ForgetPass
-		},
-		{
-			path: '/main',
-			name: 'main',
-			component: Main
 		},
 		{
 			path: '/networkgraph',
@@ -52,6 +54,16 @@ export default new Router({
 			path: '/modellist',
 			name: 'modellist',
 			component: ModelList
+		},
+		{
+			path: '/viewlist',
+			name: 'viewlist',
+			component: ViewList	
+		},
+		{
+			path: '/userlist',
+			name: 'userlist',
+			component: UserList	
 		},
 		// {
 		// 	path: '/network',
@@ -75,10 +87,7 @@ export default new Router({
 		// 	name: 'modellist',
 		// 	component: ModelList
 		// },
-		// {
-		// 	path: '/viewlist',
-		// 	name: 'viewlist',
-		// 	component: ViewList	
-		// }
+		
+		{ path: '*', redirect: '/' }
 	]
 })

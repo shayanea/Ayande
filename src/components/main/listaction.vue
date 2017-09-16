@@ -16,12 +16,12 @@
             </router-link>
         </li>
         <li>
-            <router-link :to="{ path: ''}">
+            <router-link :to="{ path: 'viewlist'}">
                 <span>فهرست<br> نماهای داده</span>
             </router-link>
         </li>
         <li>
-            <router-link :to="{ path: ''}">
+            <router-link :to="{ path: 'userlist'}">
                 <span>فهرست<br> کاربران سیستم</span>
             </router-link>
         </li>

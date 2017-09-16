@@ -12,12 +12,14 @@ import Style from './assets/css/app.css'
 
 import Trend from 'vuetrend'
 import VueHighcharts from 'vue-highcharts';
+import * as pagination from "vuejs-uib-pagination";
 import store from './store'
 
 Vue.config.productionTip = false
 
 Vue.use(Trend)
 Vue.use(VueHighcharts);
+Vue.use(pagination);
 
 /* eslint-disable no-new */
 new Vue({

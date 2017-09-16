@@ -3,10 +3,10 @@
         <FixedHeader></FixedHeader>
 
         <ul class="model-list">
-            <li v-for="(item, index) of this.$store.state.models" :key="index" @click="EditModel(item)">
+            <li v-for="(item, index) of this.$store.state.views" :key="index" @click="EditView(item)">
                 {{item.title}}
             </li>
-            <div class="add-new-model" @click="AddNewModel">
+            <div class="add-new-view" @click="AddNewView">
                 <span></span>
             </div>
         </ul>
@@ -26,10 +26,10 @@ export default {
         FixedHeader
     },
     methods: {
-        EditModel: function(item) {
+        EditView: function(item) {
             
         },
-        AddNewModel: function() {
+        AddNewView: function() {
 
         }
     }
@@ -46,7 +46,7 @@ export default {
 
 .model-list li{
     height: 100px;
-    width: 150px;
+    width: 250px;
     float: right;
     margin-left: 20px;
     margin-bottom: 20px;
@@ -61,6 +61,9 @@ export default {
     font-family: 'IRANSANS BOLD';
     line-height: 65px;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .model-list li:hover{
@@ -68,7 +71,7 @@ export default {
     transition: all .3 ease;
 }
 
-.add-new-model{
+.add-new-view{
     text-align: center;
     float: right;
     height: 100px;
@@ -82,7 +85,7 @@ export default {
     margin-bottom: 20px;
 }
 
-.add-new-model span{
+.add-new-view span{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -94,7 +97,7 @@ export default {
     background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDMxLjQ0NCAzMS40NDQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMxLjQ0NCAzMS40NDQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8cGF0aCBkPSJNMS4xMTksMTYuODQxYy0wLjYxOSwwLTEuMTExLTAuNTA4LTEuMTExLTEuMTI3YzAtMC42MTksMC40OTItMS4xMTEsMS4xMTEtMS4xMTFoMTMuNDc1VjEuMTI3ICBDMTQuNTk1LDAuNTA4LDE1LjEwMywwLDE1LjcyMiwwYzAuNjE5LDAsMS4xMTEsMC41MDgsMS4xMTEsMS4xMjd2MTMuNDc2aDEzLjQ3NWMwLjYxOSwwLDEuMTI3LDAuNDkyLDEuMTI3LDEuMTExICBjMCwwLjYxOS0wLjUwOCwxLjEyNy0xLjEyNywxLjEyN0gxNi44MzN2MTMuNDc2YzAsMC42MTktMC40OTIsMS4xMjctMS4xMTEsMS4xMjdjLTAuNjE5LDAtMS4xMjctMC41MDgtMS4xMjctMS4xMjdWMTYuODQxSDEuMTE5eiIgZmlsbD0iIzY2NjY2NiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
 }
 
-.add-new-model:hover{
+.add-new-view:hover{
     color: #ccc;
     transition: all .3s ease;
 }
