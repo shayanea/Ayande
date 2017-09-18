@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <UserSearch @search="Search"></UserSearch>
+        <RoleSearch @search="Search"></RoleSearch>
 
         <div class="user-content">
             <div class="row">
@@ -10,25 +10,23 @@
                         <thead>
                             <tr>
                                 <th>شماره مشخصه</th>
-                                <th>شناسه کاربری</th>
-                                <th>نام و نام خانوادگی</th>
-                                <th>تاریخ ثبت نام</th>
-                                <th>تاریخ آخرین ورود</th>
+                                <th>عنوان نقش</th>
+                                <th>شرح مختصر</th>
+                                <th>تاریخ درج نقش</th>
                                 <th colspan="2" style="text-align:center">ابزار</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="(item, index) of filteredList" :key="index">
                                 <td>{{item.id}}</td>
-                                <td>{{item.username}}</td>
-                                <td>{{item.firstname}} {{item.lastname}}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.description}}</td>
                                 <td>{{item.createdate}}</td>
-                                <td>{{item.lastlogin}}</td>
-                                <td @click="EditUser(item)">
-                                    <div class="edit-user"></div>
+                                <td @click="EditRole(item)">
+                                    <div class="edit-role"></div>
                                 </td>
-                                <td @click="RemoveUser(item)">
-                                    <div class="remove-user"></div>
+                                <td @click="RemoveRole(item)">
+                                    <div class="remove-role"></div>
                                 </td>
                             </tr>
                         </tbody>
@@ -37,33 +35,27 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
                     <div class="total-user-info">
-                        <span>تعداد کل کاربران سیستم</span>
-                        <h2><span class="number">{{this.$store.state.users.length}}</span> کاربر</h2>
+                        <span>تعداد کل نقش های سیستم</span>
+                        <h2><span class="number">{{this.$store.state.roles.length}}</span> نقش</h2>
                         <div class="add-new-user" @click="AddNewUser()">
-                            درج کاربر جدید
+                            درج نقش جدید
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <UserInfo :show="ShowUserInfoModal" @closeuserinfomodal="CloseUserInfoModal" @saveuserinfo="SaveOrUpdateUser"
-        @saveorupdate="SaveOrUpdateUser" :items="UserInfo"></UserInfo>
-
-        <Notify :message="NotificationMessage"></Notify>
     </div>
 </template>
 
 <script>
-import UserSearch from '../components/user/search'
-import UserInfo from '../components/user/userinfomodal'
+import RoleSearch from '../components/role/search'
 import Notify from '../components/global/notify'
 
 export default {
     name: 'userlist',
     data() {
         return {
-            totalItems: this.$store.state.users.length,
+            totalItems: this.$store.state.roles.length,
             pagination: { currentPage: 1 },
             setPage: function(pageNo) {
                 this.pagination.currentPage = pageNo;
@@ -79,16 +71,14 @@ export default {
         }
     },
     components: {
-        UserSearch,
-        UserInfo,
+        RoleSearch,
         Notify
     },
     computed: {
         filteredList: function() {
-            return this.$store.state.users.filter(item => {
-                return item.firstname.toLowerCase().includes(this.searchtext.toLowerCase()) ||
-                item.lastname.toLowerCase().includes(this.searchtext.toLowerCase()) ||
-                item.username.toLowerCase().includes(this.searchtext.toLowerCase())
+            return this.$store.state.roles.filter(item => {
+                return item.name.toLowerCase().includes(this.searchtext.toLowerCase()) ||
+                item.description.toLowerCase().includes(this.searchtext.toLowerCase())
             })
         }
     },
@@ -96,28 +86,16 @@ export default {
         Search: function(obj) {
             this.searchtext = obj.searchtext;
         },
-        RemoveUser: function(item) {
+        RemoveRole: function(item) {
             
         },
-        EditUser: function(item) {
-            this.ShowUserInfoModal = true;
-            this.UserInfo = item;
+        EditRole: function(item) {
+            this.$router.push({ path: '/addrole' });
+            this.$store.commit('ShareRoleObjForEdit',item);
         },
         AddNewUser: function() {
-            this.ShowUserInfoModal = true;
-            this.UserInfo = null;
-        },
-        CloseUserInfoModal: function() {
-            this.ShowUserInfoModal = false;
-        },
-        SaveOrUpdateUser: function(user) {
-            console.log(this.UserInfo)
-            this.ShowUserInfoModal = false;
-            if(this.UserInfo == null){
-                this.NotificationMessage = 'اطلاعات کاربر با موفقیت در سیستم ثبت شد.';
-            }else{
-                this.NotificationMessage = 'اطلاعات کاربر با موفقیت به روزرسانی شد.';
-            }
+            this.$router.push({ path: '/addrole' });
+            this.$store.commit('ShareRoleObjForEdit',null);
         }
     }
 }
@@ -174,7 +152,7 @@ export default {
     position: relative;
 }
 
-.user-table .table tr td .edit-user{
+.user-table .table tr td .edit-role{
     margin: 0 auto;
     height: 15px;
     width: 15px;
@@ -185,7 +163,7 @@ export default {
     cursor: pointer;
 }
 
-.user-table .table tr td .remove-user{
+.user-table .table tr td .remove-role{
     margin: 0 auto;
     height: 15px;
     width: 15px;

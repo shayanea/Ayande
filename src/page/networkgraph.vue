@@ -1,6 +1,5 @@
 <template>
     <div class="main">
-        <FixedHeader></FixedHeader>
         <div class="container-fluid" dir="ltr">
             <d3-network ref='net' :net-nodes="nodes" :net-links="links" :options="options" @node-click="NodeClick" />
         </div>
@@ -9,7 +8,6 @@
 
 <script>
 import D3Network from 'vue-d3-network'
-import FixedHeader from '../components/header/header.vue'
 import Notify from '../components/main/notification'
 import ListAction from '../components/main/listaction'
 import ListMethod from '../components/main/listmethod'
@@ -112,7 +110,6 @@ export default {
     },
     components: {
         D3Network,
-        FixedHeader,
         Notify,
         ListAction,
         ListMethod

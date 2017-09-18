@@ -7,6 +7,7 @@
 	@top="handleScroll">
 		<div id="app">
 			<!-- your content -->
+			<FixedHeader></FixedHeader>
 			<router-view></router-view> 	
 		</div>
 	</v-bar>	 
@@ -14,6 +15,7 @@
 
 <script>
 import VBar from 'v-bar'
+import FixedHeader from './components/header/header'
 
 export default {
 	name: 'app',
@@ -23,7 +25,8 @@ export default {
 		}
 	},
 	components:{
-		VBar
+		VBar,
+		FixedHeader
 	},
 	methods: {
         handleScroll (top) {

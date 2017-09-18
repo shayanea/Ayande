@@ -45,124 +45,289 @@ const state = {
             multiusers: false
         }
     ],
-    users:[
+    users: [
         {
             id: 0,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
             username: 'کاربر ۱'
-        },{
+        }, {
             id: 1,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
-            username:'کاربر ۲'
-        },{
+            username: 'کاربر ۲'
+        }, {
             id: 2,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
-            username:'کاربر ۳'
-        },{
+            username: 'کاربر ۳'
+        }, {
             id: 3,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
-            username:'کاربر ۴'
-        },{
+            username: 'کاربر ۴'
+        }, {
             id: 4,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
-            username:'کاربر ۶'
-        },{
+            username: 'کاربر ۶'
+        }, {
             id: 5,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
-            username:'کاربر ۷'
-        },{
+            username: 'کاربر ۷'
+        }, {
             id: 6,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
-            username:'کاربر ۸'
-        },{
+            username: 'کاربر ۸'
+        }, {
             id: 7,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
-            username:'کاربر ۹'
-        },{
+            username: 'کاربر ۹'
+        }, {
             id: 8,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
-            username:'کاربر ۱۰'
-        },{
+            username: 'کاربر ۱۰'
+        }, {
             id: 9,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
-            username:'کاربر ۱۱'
-        },{
+            username: 'کاربر ۱۱'
+        }, {
             id: 10,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
-            username:'کاربر ۱۲'
-        },{
+            username: 'کاربر ۱۲'
+        }, {
             id: 11,
             email: 'test@gmail.com',
-            fullname: 'پوریا شریفی',
+            firstname: 'پوریا',
+            lastname: 'شریفی',
+            active: true,
             createdate: '۱۲ مهر ۱۳۹۵',
             lastlogin: '۲۲ شهریور ۱۳۹۵',
-            username:'کاربر ۱۳'
+            username: 'کاربر ۱۳'
         }
     ],
     roles: [
         {
             id: 0,
-            role: 'نقش ۱'
+            name: 'UserManager',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true        
         }, {
             id: 1,
-            role: 'نقش ۲'
+            name: 'ReportManager',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true
         }, {
             id: 2,
-            role: 'نقش ۳'
+            name: 'ModelsManager',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true
         }, {
             id: 3,
-            role: 'نقش ۴'
+            name: 'Administrator',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true
+        }, {
+            id: 4,
+            name: 'UserManager',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true
+        }, {
+            id: 5,
+            name: 'ReportManage',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true
+        }, {
+            id: 6,
+            name: 'ModelsManager',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true
+        }, {
+            id: 7,
+            name: 'Administrator',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true
+        }, {
+            id: 8,
+            name: 'UserManager',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true
+        }, {
+            id: 9,
+            name: 'ReportManage',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true
+        }, {
+            id: 10,
+            name: 'ModelsManager',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true
+        }, {
+            id: 11,
+            name: 'Administrator',
+            description: 'مدیر کاربران سیستم',
+            createdate: '۱۷ دی ۱۳۹۵',
+            active: true
         }
     ],
-    views:[
-        {
-            id:0,
-            title:'کاربر روند کل مانده سپرده آینده ساز'
-        },{
-            id:1,
-            title:'کاربر روند تعداد سپرده آینده ساز'
-        },{
-            id:2,
-            title:'کاربر مبلغ سپرده در دسته بندی های مبلغی'
-        }
-    ],
-    models:[
+    access: [
         {
             id: 0,
-            title:'شماره حساب'
+            title: "مدیریت دسته ها پ گروه های گزارش ها و نماها",
+            property: {
+                view: false,
+                add: false,
+                edit: false,
+                remove: false
+            }
+        },
+        {
+            id: 1,
+            title: "مدیریت دشبورد ها",
+            property: {
+                view: false,
+                add: false,
+                edit: false,
+                remove: false
+            }
+        },
+        {
+            id: 2,
+            title: "مدیریت مدل های داده",
+            property: {
+                view: false,
+                add: false,
+                edit: false,
+                remove: false
+            }
+        },
+        {
+            id: 3,
+            title: "مدیریت نماها",
+            property: {
+                view: false,
+                add: false,
+                edit: false,
+                remove: false
+            }
+        },
+        {
+            id: 4,
+            title: "مدیریت کاربران",
+            property: {
+                view: false,
+                add: false,
+                edit: false,
+                remove: false
+            }
+        },
+        {
+            id: 5,
+            title: "مدیریت نقش ها",
+            property: {
+                view: false,
+                add: false,
+                edit: false,
+                remove: false
+            }
+        }, {
+            id: 6,
+            title: "مدیریت اطلاعات پایه",
+            property: {
+                view: false,
+                add: false,
+                edit: false,
+                remove: false
+            }
+        }
+        , {
+            id: 7,
+            title: "مدیریت تنظیمات سیستم",
+            property: {
+                view: false,
+                add: false,
+                edit: false,
+                remove: false
+            }
+        }
+    ],
+    views: [
+        {
+            id: 0,
+            title: 'کاربر روند کل مانده سپرده آینده ساز'
+        }, {
+            id: 1,
+            title: 'کاربر روند تعداد سپرده آینده ساز'
+        }, {
+            id: 2,
+            title: 'کاربر مبلغ سپرده در دسته بندی های مبلغی'
+        }
+    ],
+    models: [
+        {
+            id: 0,
+            title: 'شماره حساب'
         },
         {
             id: 1,
@@ -188,16 +353,20 @@ const state = {
             id: 6,
             title: 'مانده حساب'
         },
-        { 
+        {
             id: 7,
-            title:'تاریخ اختتام حساب'
+            title: 'تاریخ اختتام حساب'
         }
-    ]
+    ],
+    editroleobj: null
 }
 
 const mutations = {
     OpenSideNotification: function (state) {
         state.sidenotification = !state.sidenotification;
+    },
+    ShareRoleObjForEdit: function (state, item) {
+        state.editroleobj = item;
     }
 }
 

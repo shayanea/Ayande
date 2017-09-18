@@ -1,6 +1,5 @@
 <template>
     <div class="main">
-        <FixedHeader></FixedHeader>
         
         <!-- list for chart -->
         <DashboardItems :items="Items" @addnewitemtodashboard="AddNewItemToDashboard"></DashboardItems>
@@ -26,7 +25,6 @@
 </template>
 
 <script>
-import FixedHeader from '../components/header/header.vue'
 import SaveModal from '../components/newdashboard/savenewdashboard'
 import DashboardItems from '../components/dashboard/items'
 import NewItemModal from '../components/newdashboard/savenewitemfordashboard'
@@ -41,7 +39,6 @@ export default {
         }
     },
     components: {
-        FixedHeader,
         SaveModal,
         DashboardItems,
         NewItemModal

@@ -1,6 +1,5 @@
 <template>
     <div class="main">
-        <FixedHeader></FixedHeader>
         <ul class="dashboard-list">
             <li v-for="(item, index) of this.$store.state.pin" :key="index" :class="{'multi': item.multiusers}">
                 <router-link :to="{ path: ''}">
@@ -15,16 +14,11 @@
 </template>
 
 <script>
-import FixedHeader from '../components/header/header.vue'
-
 export default {
     name:'dashboard',
     data () {
         return {
         }
-    },
-    components: {
-        FixedHeader
     },
     methods: {
         AddNewDash: function () {

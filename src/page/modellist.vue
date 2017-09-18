@@ -1,7 +1,5 @@
 <template>
     <div class="main">
-        <FixedHeader></FixedHeader>
-
         <ul class="model-list">
             <li v-for="(item, index) of this.$store.state.models" :key="index" @click="EditModel(item)">
                 {{item.title}}
@@ -14,16 +12,11 @@
 </template>
  
 <script>
-import FixedHeader from '../components/header/header.vue'
-
 export default {
     name:'main',
     data () {
         return {
         }
-    },
-    components: {
-        FixedHeader
     },
     methods: {
         EditModel: function(item) {

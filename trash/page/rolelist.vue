@@ -1,5 +1,7 @@
 <template>
     <div class="main">
+        <FixedHeader></FixedHeader>
+
         <UserSearch @search="Search"></UserSearch>
 
         <div class="user-content">
@@ -55,6 +57,7 @@
 </template>
 
 <script>
+import FixedHeader from '../components/header/header.vue'
 import UserSearch from '../components/user/search'
 import UserInfo from '../components/user/userinfomodal'
 import Notify from '../components/global/notify'
@@ -72,6 +75,7 @@ export default {
                 console.log('Page changed to: ' + this.pagination.currentPage);
             },
             maxSize: 5,
+            bigTotalItems: 175,
             searchtext: '',
             ShowUserInfoModal: false,
             UserInfo: null,
@@ -79,6 +83,7 @@ export default {
         }
     },
     components: {
+        FixedHeader,
         UserSearch,
         UserInfo,
         Notify

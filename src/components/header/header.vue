@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main-header" v-if="Show">
         <div class="topbar">
             <Logo></Logo>
             <Navbar></Navbar>
@@ -23,7 +23,7 @@ export default {
     name:'header',
     data () {
         return {
-
+            Show: true
         }
     },
     components: {
@@ -33,6 +33,20 @@ export default {
         Notifications,
         Sidebar,
         Toolbar
+    },
+    watch: {
+        '$route' : function(current) {
+            if(current.name == 'login'){
+                this.Show = false
+            }else{
+                this.Show = true
+            }
+        }
+    },
+    created(){
+        if(this.$route.name == 'login'){
+            return this.Show = false
+        }
     }
 }
 </script>

@@ -9,7 +9,8 @@ import NewDashboard from '@/page/addnewdashboard'
 import ModelList from '@/page/modellist'
 import ViewList from '@/page/viewlist'
 import UserList from '@/page/userlist'
-// import Network from '@/page/network'
+import AddRole from '@/page/addrole'
+import RoleList from '@/page/rolelist'
 
 
 // import ModelList from '@/page/modellist'
@@ -65,16 +66,16 @@ export default new Router({
 			name: 'userlist',
 			component: UserList	
 		},
-		// {
-		// 	path: '/network',
-		// 	name: 'network',
-		// 	component: Network
-		// },
-		// {
-		// 	path: '/dashboard',
-		// 	name: 'dashboard',
-		// 	component: Dashboard
-		// },
+		{
+			path: '/addrole',
+			name: 'addrole',
+			component: AddRole
+		},
+		{
+			path: '/rolelist',
+			name: 'rolelist',
+			component: RoleList
+		},
 		
 		// {
 		// 	path: '/active',

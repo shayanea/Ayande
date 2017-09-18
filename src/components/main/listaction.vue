@@ -26,7 +26,7 @@
             </router-link>
         </li>
         <li>
-            <router-link :to="{ path: ''}">
+            <router-link :to="{ path: 'rolelist'}">
                 <span>فهرست<br> نقش های کاربری</span>
             </router-link>
         </li>
