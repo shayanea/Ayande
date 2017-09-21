@@ -47,10 +47,10 @@
             </div>
         </div>
 
-        <UserInfo :show="ShowUserInfoModal" @closeuserinfomodal="CloseUserInfoModal" @saveuserinfo="SaveOrUpdateUser"
-        @saveorupdate="SaveOrUpdateUser" :items="UserInfo"></UserInfo>
+        <UserInfo :show="UserModal.status" @closeuserinfomodal="CloseUserInfoModal"
+        @saveorupdate="SaveOrUpdateUser" :items="UserModal.data"></UserInfo>
 
-        <Notify :message="NotificationMessage"></Notify>
+        <Notify :message="NotifyObj.message" :show="NotifyObj.status"></Notify>
     </div>
 </template>
 
@@ -73,9 +73,14 @@ export default {
             },
             maxSize: 5,
             searchtext: '',
-            ShowUserInfoModal: false,
-            UserInfo: null,
-            NotificationMessage: ''
+            UserModal: {
+                status: false,
+                data: null
+            },
+            NotifyObj: {
+                status: false,
+                message: ''
+            }
         }
     },
     components: {
@@ -100,24 +105,46 @@ export default {
             
         },
         EditUser: function(item) {
-            this.ShowUserInfoModal = true;
-            this.UserInfo = item;
+            this.UserModal = {
+                status: true,
+                data : item
+            }  
         },
         AddNewUser: function() {
-            this.ShowUserInfoModal = true;
-            this.UserInfo = null;
+            this.UserModal = {
+                status: true,
+                data : false
+            }  
         },
         CloseUserInfoModal: function() {
-            this.ShowUserInfoModal = false;
+            this.UserModal = {
+                status: false,
+                data : null
+            }  
         },
         SaveOrUpdateUser: function(user) {
-            console.log(this.UserInfo)
-            this.ShowUserInfoModal = false;
-            if(this.UserInfo == null){
-                this.NotificationMessage = 'اطلاعات کاربر با موفقیت در سیستم ثبت شد.';
+            let self = this;
+            this.UserModal = {
+                status: false,
+                data : null
+            }  
+            if(this.UserModal.data == null){
+                this.NotifyObj = {
+                    status: true,
+                    message: 'اطلاعات کاربر با موفقیت در سیستم ثبت شد.'
+                }
             }else{
-                this.NotificationMessage = 'اطلاعات کاربر با موفقیت به روزرسانی شد.';
+                this.NotifyObj = {
+                    status: true,
+                    message: 'اطلاعات کاربر با موفقیت به روزرسانی شد.'
+                }
             }
+            setTimeout(function() {
+                self.NotifyObj.status = false;
+            },2000);
+        },
+        HideNotify: function(){
+            this.NotifyObj.state = false;
         }
     }
 }
@@ -196,8 +223,8 @@ export default {
     cursor: pointer;
 }
 
-.pagination>li>a,
-.pagination>li>span {
+.user-table .pagination>li>a,
+.user-table .pagination>li>span {
     border: 0;
     background-color: #eaeaea;
     margin: 0 5px;
@@ -205,22 +232,22 @@ export default {
     color: #222;
 }
 
-.pagination>.disabled>span,
-.pagination>.disabled>span:hover,
-.pagination>.disabled>span:focus,
-.pagination>.disabled>a,
-.pagination>.disabled>a:hover,
-.pagination>.disabled>a:focus {
+.user-table .pagination>.disabled>span,
+.user-table .pagination>.disabled>span:hover,
+.user-table .pagination>.disabled>span:focus,
+.user-table .pagination>.disabled>a,
+.user-table .pagination>.disabled>a:hover,
+.user-table .pagination>.disabled>a:focus {
     background-color: #999;
     color: #666;
 }
 
-.pagination>.active>a,
-.pagination>.active>span,
-.pagination>.active>a:hover,
-.pagination>.active>span:hover,
-.pagination>.active>a:focus,
-.pagination>.active>span:focus {
+.user-table .pagination>.active>a,
+.user-table .pagination>.active>span,
+.user-table .pagination>.active>a:hover,
+.user-table .pagination>.active>span:hover,
+.user-table .pagination>.active>a:focus,
+.user-table .pagination>.active>span:focus {
     background-color: #ffc72f;
     color: #222;
 }
@@ -280,11 +307,14 @@ export default {
 .total-user-info .add-new-user:after{
     content: '';
     position: absolute;
-    right: 35%;
+    right: 25%;
     top: 50%;
+    height: 15px;
+    width: 15px;
+    transform: translate(0,-50%);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 10px;
+    background-size: 15px;
     background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDMxLjQ0NCAzMS40NDQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMxLjQ0NCAzMS40NDQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNjRweCIgaGVpZ2h0PSI2NHB4Ij4KPHBhdGggZD0iTTEuMTE5LDE2Ljg0MWMtMC42MTksMC0xLjExMS0wLjUwOC0xLjExMS0xLjEyN2MwLTAuNjE5LDAuNDkyLTEuMTExLDEuMTExLTEuMTExaDEzLjQ3NVYxLjEyNyAgQzE0LjU5NSwwLjUwOCwxNS4xMDMsMCwxNS43MjIsMGMwLjYxOSwwLDEuMTExLDAuNTA4LDEuMTExLDEuMTI3djEzLjQ3NmgxMy40NzVjMC42MTksMCwxLjEyNywwLjQ5MiwxLjEyNywxLjExMSAgYzAsMC42MTktMC41MDgsMS4xMjctMS4xMjcsMS4xMjdIMTYuODMzdjEzLjQ3NmMwLDAuNjE5LTAuNDkyLDEuMTI3LTEuMTExLDEuMTI3Yy0wLjYxOSwwLTEuMTI3LTAuNTA4LTEuMTI3LTEuMTI3VjE2Ljg0MUgxLjExOXoiIGZpbGw9IiMwMDAwMDAiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
 }
 </style>

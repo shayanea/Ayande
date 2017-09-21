@@ -36,7 +36,7 @@ export default {
     },
     watch: {
         '$route' : function(current) {
-            if(current.name == 'login'){
+            if(current.name == 'login' || current.name == 'forgetpass'){
                 this.Show = false
             }else{
                 this.Show = true
@@ -44,7 +44,8 @@ export default {
         }
     },
     created(){
-        if(this.$route.name == 'login'){
+        console.log(this.$route);
+        if(this.$route.name == 'login' || this.$route.name == 'forgetpass'){
             return this.Show = false
         }
     }

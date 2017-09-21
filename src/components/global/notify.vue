@@ -1,5 +1,5 @@
 <template>
-    <div class="notify-success" :class="{'active': active}">
+    <div class="notify-success" :class="{'active': show}">
         <p>{{message}}</p>
     </div>
 </template>
@@ -11,24 +11,14 @@ export default {
         message: {
             required: true,
             default: ''
-        }
-    },
-    watch: { 
-      	message: function(newVal, oldVal) {
-            console.log(newVal) 
-            if(newVal !== null || newVal !== ''){
-                this.message = newVal;
-                this.active = true;
-                let self = this;
-                setTimeout(function() {
-                    self.active = false;
-                },2500);
-            }  
+        },
+        show: {
+            required: true,
+            default: false
         }
     },
     data () {
         return {
-            active: false
         }
     }
 }

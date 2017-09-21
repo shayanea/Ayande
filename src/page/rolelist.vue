@@ -2,9 +2,9 @@
     <div class="main">
         <RoleSearch @search="Search"></RoleSearch>
 
-        <div class="user-content">
+        <div class="role-content">
             <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 user-table">
+                <div class="col-md-6 col-sm-6 col-xs-12 role-table">
                     <h2 class="table-title">لیست کاربران</h2>
                     <table class="table table-striped">
                         <thead>
@@ -34,10 +34,10 @@
                     <uib-pagination v-model="pagination" :items-per-page="10" :total-items="totalItems" :max-size="maxSize" class="pagination-sm" :boundary-link-numbers="false" :direction-links="true" :rotate="false" :next-text="'بعدی'" :previous-text="'قبلی'"></uib-pagination>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-                    <div class="total-user-info">
+                    <div class="total-role-info">
                         <span>تعداد کل نقش های سیستم</span>
                         <h2><span class="number">{{this.$store.state.roles.length}}</span> نقش</h2>
-                        <div class="add-new-user" @click="AddNewUser()">
+                        <div class="add-new-role" @click="AddNewRole()">
                             درج نقش جدید
                         </div>
                     </div>
@@ -65,9 +65,6 @@ export default {
             },
             maxSize: 5,
             searchtext: '',
-            ShowUserInfoModal: false,
-            UserInfo: null,
-            NotificationMessage: ''
         }
     },
     components: {
@@ -93,7 +90,7 @@ export default {
             this.$router.push({ path: '/addrole' });
             this.$store.commit('ShareRoleObjForEdit',item);
         },
-        AddNewUser: function() {
+        AddNewRole: function() {
             this.$router.push({ path: '/addrole' });
             this.$store.commit('ShareRoleObjForEdit',null);
         }
@@ -102,13 +99,13 @@ export default {
 </script>
 
 <style>
-.user-content {
+.role-content {
     padding: 25px;
     display: block;
     clear: both;
 }
 
-.user-table {
+.role-table {
     overflow: hidden;
     border-radius: 6px;
     text-align: center;
@@ -124,12 +121,12 @@ export default {
     font-weight: bold;
 }
 
-.user-table .table {
+.role-table .table {
     direction: rtl;
     margin-bottom: 0;
 }
 
-.user-table .table tr th {
+.role-table .table tr th {
     font-size: 12px;
     text-align: right;
     background: #eaeaea;
@@ -137,22 +134,22 @@ export default {
     position: relative;
 }
 
-.user-table .table tr:nth-of-type(odd) {
+.role-table .table tr:nth-of-type(odd) {
     background: #f5f3f3;
 }
 
-.user-table .table tr:nth-of-type(even) {
+.role-table .table tr:nth-of-type(even) {
     background: #eaeaea;
 }
 
-.user-table .table tr td {
+.role-table .table tr td {
     font-size: 12px;
     font-weight: bold;
     text-align: right;
     position: relative;
 }
 
-.user-table .table tr td .edit-role{
+.role-table .table tr td .edit-role{
     margin: 0 auto;
     height: 15px;
     width: 15px;
@@ -163,7 +160,7 @@ export default {
     cursor: pointer;
 }
 
-.user-table .table tr td .remove-role{
+.role-table .table tr td .remove-role{
     margin: 0 auto;
     height: 15px;
     width: 15px;
@@ -174,8 +171,8 @@ export default {
     cursor: pointer;
 }
 
-.pagination>li>a,
-.pagination>li>span {
+.role-content .pagination>li>a,
+.role-content .pagination>li>span {
     border: 0;
     background-color: #eaeaea;
     margin: 0 5px;
@@ -183,27 +180,27 @@ export default {
     color: #222;
 }
 
-.pagination>.disabled>span,
-.pagination>.disabled>span:hover,
-.pagination>.disabled>span:focus,
-.pagination>.disabled>a,
-.pagination>.disabled>a:hover,
-.pagination>.disabled>a:focus {
+.role-content .pagination>.disabled>span,
+.role-content .pagination>.disabled>span:hover,
+.role-content .pagination>.disabled>span:focus,
+.role-content .pagination>.disabled>a,
+.role-content .pagination>.disabled>a:hover,
+.role-content .pagination>.disabled>a:focus {
     background-color: #999;
     color: #666;
 }
 
-.pagination>.active>a,
-.pagination>.active>span,
-.pagination>.active>a:hover,
-.pagination>.active>span:hover,
-.pagination>.active>a:focus,
-.pagination>.active>span:focus {
+.role-content .pagination>.active>a,
+.role-content .pagination>.active>span,
+.role-content .pagination>.active>a:hover,
+.role-content .pagination>.active>span:hover,
+.role-content .pagination>.active>a:focus,
+.role-content .pagination>.active>span:focus {
     background-color: #ffc72f;
     color: #222;
 }
 
-.total-user-info{
+.total-role-info{
     background-color: #eaeaea;
     border-radius: 10px;
     position: relative;
@@ -211,14 +208,14 @@ export default {
     overflow: hidden;
 }
 
-.total-user-info span{
+.total-role-info span{
     text-align: right;
     display: block;
     color: #999;
     padding: 15px;
 }
 
-.total-user-info h2{
+.total-role-info h2{
     position: absolute;
     top: calc(50% - 20px);
     left: 50%;
@@ -230,7 +227,7 @@ export default {
     color: #ffc72f;
 }
 
-.total-user-info .number{
+.total-role-info .number{
     font-size: 2em;
     font-family: "Number";
     display: inline;
@@ -238,7 +235,7 @@ export default {
     padding: 0;
 }
 
-.total-user-info .add-new-user{
+.total-role-info .add-new-role{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -251,18 +248,21 @@ export default {
     cursor: pointer;
 }
 
-.total-user-info .add-new-user:hover{
+.total-role-info .add-new-role:hover{
     background-color: #d8d5d5;
 }
 
-.total-user-info .add-new-user:after{
+.total-role-info .add-new-role:after{
     content: '';
     position: absolute;
-    right: 35%;
+    right: 25%;
     top: 50%;
+    height: 15px;
+    width: 15px;
+    transform: translate(0,-50%);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 10px;
+    background-size: 15px;
     background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDMxLjQ0NCAzMS40NDQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMxLjQ0NCAzMS40NDQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNjRweCIgaGVpZ2h0PSI2NHB4Ij4KPHBhdGggZD0iTTEuMTE5LDE2Ljg0MWMtMC42MTksMC0xLjExMS0wLjUwOC0xLjExMS0xLjEyN2MwLTAuNjE5LDAuNDkyLTEuMTExLDEuMTExLTEuMTExaDEzLjQ3NVYxLjEyNyAgQzE0LjU5NSwwLjUwOCwxNS4xMDMsMCwxNS43MjIsMGMwLjYxOSwwLDEuMTExLDAuNTA4LDEuMTExLDEuMTI3djEzLjQ3NmgxMy40NzVjMC42MTksMCwxLjEyNywwLjQ5MiwxLjEyNywxLjExMSAgYzAsMC42MTktMC41MDgsMS4xMjctMS4xMjcsMS4xMjdIMTYuODMzdjEzLjQ3NmMwLDAuNjE5LTAuNDkyLDEuMTI3LTEuMTExLDEuMTI3Yy0wLjYxOSwwLTEuMTI3LTAuNTA4LTEuMTI3LTEuMTI3VjE2Ljg0MUgxLjExOXoiIGZpbGw9IiMwMDAwMDAiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
 }
 </style>

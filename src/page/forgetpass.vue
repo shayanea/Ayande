@@ -105,7 +105,7 @@
                             به منظور بازیابی گذرواژه ی خود،آدرس ایمیل یا شناسه ی کاربری خود را وارد کنید. در صورت صحیح بودن آدرس ایمیل یا شناسه ورود شما ،ایمیلی حاوی لینک تغییر گذرواژه به آدرس ایمیل حساب کاربری شما ارسال خواهد شد.
                         </p>
                         <input name="bnkuser" type="text" v-model="emailorusername" maxlength="70" class="form-control" placeholder="آدرس ایمیل یا شناسه کاربری خود را وارد کنید" />
-                        <button type="submit" @click="Login" class="btn btn-block login-btn">ارسال لینک تغییر گذرواژه</button>
+                        <button type="submit" @click="ChangePass" class="btn btn-block login-btn">ارسال لینک تغییر گذرواژه</button>
                     </form>
                 </div>
             </div>

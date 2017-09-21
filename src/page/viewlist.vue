@@ -13,7 +13,7 @@
  
 <script>
 export default {
-    name:'main',
+    name:'viewlist',
     data () {
         return {
         }

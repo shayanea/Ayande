@@ -4,7 +4,7 @@
 
         <div class="add-role-content">
             <div class="row">
-                <form class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <form class="col-lg-4 col-md-6 col-sm-6 col-xs-12" @submit.prevent="SaveOrUdpate">
                     <div class="form-group">
                         <label for="RoleName">نام نقش</label>
                         <input type="text" class="form-control" id="RoleName" v-model="role.name"/>
@@ -70,13 +70,13 @@
                     <div class="clearfix"></div>
                     <div class="form-group" style="direction: rtl;">
                         <button type="button" class="btn btn-default" @click="Close">انصراف</button>
-                        <button type="submit" class="btn btn-primary" @click="SaveOrUdpate">{{ButtonText}}</button>
+                        <button type="submit" class="btn btn-primary">{{ButtonText}}</button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <Notify :message="NotificationMessage"></Notify>
+        <Notify :message="NotifyObj.message" :show="NotifyObj.status"></Notify>
     </div>
 </template>
  
@@ -86,7 +86,7 @@ import Toolbar from '../components/role/addroletoolbar'
 import Notify from '../components/global/notify'
 
 export default {
-    name:'main',
+    name:'addrole',
     data () {
         return {
             role:{
@@ -96,7 +96,10 @@ export default {
                 active: false
             },
             ButtonText:'درج نقش',
-            NotificationMessage: ''
+            NotifyObj: {
+                status: false,
+                message: ''
+            }
         }
     },
     components: {
@@ -113,8 +116,18 @@ export default {
             this.$router.push({ path: '/rolelist' });
         },
         SaveOrUdpate: function() {
-            this.NotificationMessage = 'اطلاعات نقش جدید با موفقیت در سیستم ثبت شد.';
+            let self = this;
+            this.NotifyObj = {
+                status: true,
+                message: 'اطلاعات نقش جدید با موفقیت در سیستم ثبت شد.'
+            }
+            setTimeout(function() {
+                self.NotifyObj.status = false;
+            },2000);
             // this.$router.push({ path: '/rolelist' });
+        },
+        HideNotify: function(){
+            this.NotifyObj.state = false;
         }
     }
 }

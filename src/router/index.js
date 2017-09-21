@@ -11,11 +11,8 @@ import ViewList from '@/page/viewlist'
 import UserList from '@/page/userlist'
 import AddRole from '@/page/addrole'
 import RoleList from '@/page/rolelist'
-
-
-// import ModelList from '@/page/modellist'
-
-// import Active from '@/page/active'
+import AddCategory from '@/page/addcategory'
+import CategoryReportList from '@/page/categoryreportlist'
 
 Vue.use(Router)
 
@@ -33,7 +30,7 @@ export default new Router({
 		},
 		{
 			path: '/forgetpass',
-			name: 'forgestpass',
+			name: 'forgetpass',
 			component: ForgetPass
 		},
 		{
@@ -76,19 +73,16 @@ export default new Router({
 			name: 'rolelist',
 			component: RoleList
 		},
-		
-		// {
-		// 	path: '/active',
-		// 	name: 'active',
-		// 	component: Active
-		// },
-		
-		// {
-		// 	path: '/modellist',
-		// 	name: 'modellist',
-		// 	component: ModelList
-		// },
-		
+		{
+			path: '/addcategory',
+			name: 'addcategory',
+			component: AddCategory
+		},
+		{
+			path: '/categoryreportlist',
+			name: 'categoryreportlist',
+			component: CategoryReportList
+		},
 		{ path: '*', redirect: '/' }
 	]
 })

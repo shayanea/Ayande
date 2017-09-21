@@ -25,9 +25,9 @@
                         <input type="email" class="form-control" v-model="user.email"/>
                     </div>
                     <div class="form-group">
-                        <label for="roles">لیست نقش های مجاز برای مشاهده</label>
-                        <select class="form-control" id="roles" v-model="Role" @change="AddRole">
-                            <option v-for="(item, index) of this.$store.state.roles" :key="index" :value="item">{{item.role}}</option>
+                        <label for="access">لیست نقش های مجاز برای مشاهده</label>
+                        <select class="form-control" id="access" v-model="Role" @change="AddRole">
+                            <option v-for="(item, index) of this.$store.state.access" :key="index" :value="item">{{item.role}}</option>
                         </select>
                         <div class="selected-list" v-if="SelectedRoles.length > 0">
                             <div class="selected-item" v-for="(item, index) of SelectedRoles" :key="index">

@@ -6,7 +6,6 @@
 	hBarInternal=""
 	@top="handleScroll">
 		<div id="app">
-			<!-- your content -->
 			<FixedHeader></FixedHeader>
 			<router-view></router-view> 	
 		</div>

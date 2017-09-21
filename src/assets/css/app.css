@@ -33,6 +33,32 @@ html,body{
     background: #eee;
 }
 
+.customtooltip {
+    position: relative;
+}
+
+.customtooltip .tooltiptext {
+    visibility: hidden;
+    opacity: 0;
+    width: 120px;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: -30px;
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+.customtooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
 /* Login */
 .login {
     position: absolute;
@@ -97,6 +123,16 @@ html,body{
     right: 0;
     top: 43%;
     transform: translate(0, -50%);
+}
+
+.login-holder .bg-color {
+    background-color: #eeb42f;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+    background-image: url('../image/Back.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .login-holder .bg-color .banner {
@@ -956,7 +992,7 @@ html,body{
     outline: none;
     box-shadow: none;
     border: 1px solid #e1e1e1;
-    background: #fbfbfb;
+    background-color: #fbfbfb;
     font-size: 14px;
     text-align: right;
 }

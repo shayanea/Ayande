@@ -167,14 +167,5 @@ export default {
 </script>
 
 <style>
-.login-holder .bg-color {
-    background-color: #eeb42f;
-    height: 100%;
-    border-radius: 10px 0 0 10px;
-    background-image: url('../assets/image/Back.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 </style>
 
