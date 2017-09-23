@@ -14,6 +14,9 @@ import RoleList from '@/page/rolelist'
 import AddCategory from '@/page/addcategory'
 import CategoryReportList from '@/page/categoryreportlist'
 
+import CustomDashboard from '@/page/customdashboard'
+import DefaultModel from '@/page/custommodel'
+
 Vue.use(Router)
 
 export default new Router({
@@ -83,6 +86,20 @@ export default new Router({
 			name: 'categoryreportlist',
 			component: CategoryReportList
 		},
+
+
+		{
+			path: '/customdashboard',
+			name: 'customdashboard',
+			component: CustomDashboard
+		},
+		{
+			path: '/defaultmodel',
+			name: 'defaultmodel',
+			component: DefaultModel
+		},
+
+
 		{ path: '*', redirect: '/' }
 	]
 })

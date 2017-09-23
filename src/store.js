@@ -476,7 +476,12 @@ const state = {
             lastupdate: '۲۲ شهریور ۱۳۹۵',
         }
     ],
-    editroleobj: null
+    editroleobj: null,
+
+    showbgwrapper: false,
+    showcreateview: false,
+    showcreatemodal: false,
+    custome_model: null,
 }
 
 const mutations = {
@@ -485,6 +490,16 @@ const mutations = {
     },
     ShareRoleObjForEdit: function (state, item) {
         state.editroleobj = item;
+    },
+
+    ShowCreateModel: function(state) {
+        state.showcreatemodal = !state.showcreatemodal;
+    },
+    ShowCreateView: function(state) {
+        state.showcreateview = !state.showcreateview;
+    },
+    ShowBgWrapper: function(state) {
+        state.showbgwrapper = !state.showbgwrapper;
     }
 }
 

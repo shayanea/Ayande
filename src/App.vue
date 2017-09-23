@@ -8,6 +8,7 @@
 		<div id="app">
 			<FixedHeader></FixedHeader>
 			<router-view></router-view> 	
+			<BgWrapper :show="this.$store.state.showbgwrapper"></BgWrapper>
 		</div>
 	</v-bar>	 
 </template>
@@ -15,6 +16,8 @@
 <script>
 import VBar from 'v-bar'
 import FixedHeader from './components/header/header'
+
+import BgWrapper from './components/global/bgwrapper'
 
 export default {
 	name: 'app',
@@ -25,7 +28,8 @@ export default {
 	},
 	components:{
 		VBar,
-		FixedHeader
+		FixedHeader,
+		BgWrapper
 	},
 	methods: {
         handleScroll (top) {

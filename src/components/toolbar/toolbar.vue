@@ -4,11 +4,11 @@
             دشبورد‌های پین شده شمـا
         </div>
         <PinList></PinList>
-        <button class="btn toolbar-action-btn" @click="">
+        <button class="btn toolbar-action-btn" @click="ShowCreateModel">
             <div class="text">مدل جدید</div>
             <span class="plus-icon"></span>
         </button>
-        <button class="btn toolbar-action-btn" @click="">
+        <button class="btn toolbar-action-btn" @click="ShowView">
             <div class="text">نمای جدید</div>
             <span class="plus-icon"></span>
         </button>
@@ -16,11 +16,19 @@
             <div class="text">دشبورد جدید</div>
             <span class="plus-icon"></span>
         </router-link>
+
+        <CreateModel></CreateModel>
+
+        <CreateView></CreateView>
+
     </div>
 </template>
 
 <script>
 import PinList from './pindashboardlist'
+
+import CreateView from '../view/popup'
+import CreateModel from '../model/popup'
 
 export default {
     name:'toolbar',
@@ -29,10 +37,24 @@ export default {
         }
     },
     components: {
-        PinList
+        PinList,
+
+        CreateView,
+        CreateModel,
     },
     methods: {
-        
+        ShowView: function() {
+            if(!this.$store.state.showbgwrapper){
+                this.$store.commit('ShowBgWrapper');
+            }
+            this.$store.commit('ShowCreateView');
+        },
+        ShowCreateModel: function() {
+            if(!this.$store.state.showbgwrapper){
+                this.$store.commit('ShowBgWrapper');
+            }
+            this.$store.commit('ShowCreateModel');
+        }
     }
 }
 </script>

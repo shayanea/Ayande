@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="roles">لیست نقش های مجاز برای مشاهده</label>
                         <select class="form-control" id="roles" v-model="Role" @change="AddRole">
-                            <option v-for="(item, index) of this.$store.state.roles" :key="index" :value="item">{{item.role}}</option>
+                            <option v-for="(item, index) of this.$store.state.roles" :key="index" :value="item">{{item.name}}</option>
                         </select>
                         <div class="selected-list" v-if="SelectedRoles.length > 0">
                             <div class="selected-item" v-for="(item, index) of SelectedRoles" :key="index">

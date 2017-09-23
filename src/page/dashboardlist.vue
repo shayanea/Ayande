@@ -2,7 +2,7 @@
     <div class="main">
         <ul class="dashboard-list">
             <li v-for="(item, index) of this.$store.state.pin" :key="index" :class="{'multi': item.multiusers}">
-                <router-link :to="{ path: ''}">
+                <router-link :to="{ path: 'customdashboard'}">
                     <span>{{item.name}}</span>
                 </router-link>
             </li>

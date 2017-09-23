@@ -6,10 +6,10 @@
                     <span>ساخت<br> دشبورد جدید</span>
                 </router-link>
             </li>
-            <li @click="">
+            <li @click="ShowCreateModel">
                 <span>ساخت<br> مدل های جدید</span>
             </li>
-            <li @click="">
+            <li @click="ShowView">
                 <span>ساخت<br> نما داده جدید</span>
             </li>
             <li @click="AddNewUser">
@@ -25,12 +25,20 @@
         <UserInfo :show="UserModal.status" @closeuserinfomodal="CloseUserInfoModal" @saveorupdate="SaveOrUpdateUser" :items="UserModal.data"></UserInfo>
 
         <Notify :message="NotifyObj.message" :show="NotifyObj.status"></Notify>
+
+        <CreateModel></CreateModel>
+
+        <CreateView></CreateView>
+
     </div>
 </template>
 
 <script>
 import UserInfo from '../user/userinfomodal'
 import Notify from '../global/notify'
+
+import CreateView from '../view/popup'
+import CreateModel from '../model/popup'
 
 export default {
     name: 'listmethod',
@@ -48,9 +56,26 @@ export default {
     },
     components: {
         UserInfo,
-        Notify
+        Notify,
+
+        CreateView,
+        CreateModel,
     },
     methods: {
+        ShowView: function() {
+            if(!this.$store.state.showbgwrapper){
+                this.$store.commit('ShowBgWrapper');
+            }
+            this.$store.commit('ShowCreateView');
+        },
+        ShowCreateModel: function() {
+            if(!this.$store.state.showbgwrapper){
+                this.$store.commit('ShowBgWrapper');
+            }
+            this.$store.commit('ShowCreateModel');
+        },
+
+        
         AddNewUser: function() {
             this.UserModal = {
                 status: true,
