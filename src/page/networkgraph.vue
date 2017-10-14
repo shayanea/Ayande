@@ -10,12 +10,12 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link :to="{ path: 'addcategory'}">
+                        <a @click="EditCategory">
                             ویرایش گره
-                        </router-link>
+                        </a>
                     </li>
                     <li>
-                        <a href="">حذف گره</a>
+                        <a>حذف گره</a>
                     </li>
                     <li>
                         <router-link :to="{ path: 'addcategory'}">
@@ -175,10 +175,9 @@ export default {
         Handler: function(e) {
             if(e.path[0].nodeName == "circle"){
                 e.preventDefault();
-                console.log(e);
                 this.context = {
                     top: e.pageY + "px",
-                    left: e.pageX + "px",
+                    left: (e.pageX - 150) + "px",
                     show: true
                 }
             }else{
@@ -187,6 +186,10 @@ export default {
         },
         Hide: function() {
             this.context.show = false;
+        },
+        EditCategory: function() {
+            this.$store.state.editroleobj = true;
+            this.$router.push({ path: '/addcategory' });
         }
     }
 }
@@ -258,6 +261,7 @@ export default {
     text-decoration: none;
     color: #222;
     position: relative;
+    cursor: pointer;
 }
 
 .context-menu li:nth-child(1) a:after{

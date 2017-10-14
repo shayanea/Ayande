@@ -37,7 +37,7 @@
                         </select>
                         <div class="selected-list" v-if="SelectedRoles.length > 0">
                             <div class="selected-item" v-for="(item, index) of SelectedRoles" :key="index">
-                                {{item.role}}
+                                {{item.name}}
                                 <span class="remove-item" @click="RemoveRole(item)"></span>
                             </div>
                         </div>
@@ -81,7 +81,7 @@ export default {
             this.SeletedUsers = _.reject(this.SeletedUsers, {'id': item.id});
         },
         AddRole: function() {
-            this.SelectedRoles.push({role:this.Role.description,id: this.Role.id})
+            this.SelectedRoles.push({name:this.Role.name,id: this.Role.id})
         },
         RemoveRole: function(item) {
             this.SelectedRoles = _.reject(this.SelectedRoles, {'id': item.id});

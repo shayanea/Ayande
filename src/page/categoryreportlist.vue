@@ -9,7 +9,7 @@
                         <thead>
                             <tr>
                                 <th>شماره مشخصه</th>
-                                <th>عنوان دشبورد/نما</th>
+                                <th>عنوان گزارش ها</th>
                                 <th>تاریخ درج</th>
                                 <th>تاریخ آخرین به روز رسانی</th>
                                 <th colspan="3" style="text-align:center">ابزار</th>
@@ -22,7 +22,7 @@
                                 <td>{{item.createdate}}</td>
                                 <td>{{item.lastupdate}}</td>
                                 <td @click="ViewReport(item)" class="customtooltip">
-                                    <span class="tooltiptext">مشاهده دشبورد/نما</span>
+                                    <span class="tooltiptext">مشاهده گزارش ها</span>
                                     <div class="view-report"></div>
                                 </td>
                                 <td @click="AccessUser(item)" class="customtooltip">
@@ -30,7 +30,7 @@
                                     <div class="access-report"></div>
                                 </td>
                                 <td @click="RemoveReport(item)" class="customtooltip">
-                                    <span class="tooltiptext">حذف دشبورد/نما از دسته بندی</span>
+                                    <span class="tooltiptext">حذف گزارش ها از دسته بندی</span>
                                     <div class="remove-report"></div>
                                 </td>
                             </tr>
@@ -40,10 +40,10 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
                     <div class="total-report-info">
-                        <span>تعداد دشبورد/نماها موجود در دسته بندی</span>
-                        <h2><span class="number">{{this.$store.state.report.length}}</span> دشبورد/نما</h2>
+                        <span> گزارش ها موجود در دسته بندی</span>
+                        <h2><span class="number">{{this.$store.state.report.length}}</span> گزارش</h2>
                         <div class="add-new-report" @click="AddNewReport()">
-                            درج دشبورد/نما به دسته بندی
+                            درج گزارش ها به دسته بندی
                         </div>
                     </div>
                 </div>
@@ -110,6 +110,8 @@ export default {
         },
         AddNewReport: function() {
             this.ReportModal.status = true;
+            this.$store.state.editroleobj = false;
+            this.$router.push({ path: '/addcategory' });
         },
         CloseReportModal: function() {
             this.ReportModal.status = false;

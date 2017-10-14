@@ -488,9 +488,6 @@ const mutations = {
     OpenSideNotification: function (state) {
         state.sidenotification = !state.sidenotification;
     },
-    ShareRoleObjForEdit: function (state, item) {
-        state.editroleobj = item;
-    },
 
     ShowCreateModel: function(state) {
         state.showcreatemodal = !state.showcreatemodal;

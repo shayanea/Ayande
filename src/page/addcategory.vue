@@ -67,6 +67,7 @@ export default {
     data () {
         return {
             category:{
+                active: false,
                 name: '',
                 nodetype: null,
                 nodeparent: null,
@@ -87,8 +88,16 @@ export default {
         Notify
     },
     mounted (){
-        if(this.$store.state.editroleobj !== null){
-            return this.role = this.$store.state.editroleobj;
+        if(this.$store.state.editroleobj){
+            // return this.role = this.$store.state.editroleobj;
+            return this.category = {
+                active: true,
+                name: 'روند رشد حساب آینده ساز',
+                nodetype: 'گره اصلی',
+                nodeparent: '',
+                description: '',
+                similarcategory: false
+            };
         }
     },
     methods: {
