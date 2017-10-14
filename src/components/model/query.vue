@@ -4,7 +4,7 @@
             <h2>شروط پایگاه داده</h2>
         </div>
         <form @submit.prevent="Save">
-            <textarea class="form-control" rows="5" v-model="QueryText"></textarea>
+            <textarea class="form-control" rows="5" v-model="QueryText" style="direction:ltr"></textarea>
             <button type="submit" class="btn btn-default save" @click="Save">ذخیره</button>
             <button type="button" class="btn btn-default close" @click="Close">انصراف</button>
         </form>

@@ -10,7 +10,7 @@
                 <span>ساخت<br> مدل های جدید</span>
             </li>
             <li @click="ShowView">
-                <span>ساخت<br> نما داده جدید</span>
+                <span>ساخت<br> نمای جدید</span>
             </li>
             <li @click="AddNewUser">
                 <span>ایجاد<br> کاربر جدید</span>

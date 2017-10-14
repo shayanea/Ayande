@@ -92,10 +92,10 @@ export default {
             // return this.role = this.$store.state.editroleobj;
             return this.category = {
                 active: true,
-                name: 'روند رشد حساب آینده ساز',
+                name: 'محصول',
                 nodetype: 'گره اصلی',
                 nodeparent: '',
-                description: '',
+                description: 'فهرست گزارش های مرتبط با محصولات',
                 similarcategory: false
             };
         }
@@ -116,10 +116,21 @@ export default {
                 status: true,
                 message: 'اطلاعات دسته بندی گزارش جدید با موفقیت در سیستم ثبت شد.'
             }
+            this.$store.state.nodes.push({
+                "id": 4,
+                "name": "گره جدید",
+                "_cssClass": "main-node",
+                "_color": "#666",
+                "_labelClass": "node-title"
+            });
+            this.$store.state.links.push({
+                "sid": 1001,
+                "tid": 4
+            });
             setTimeout(function() {
                 self.NotifyObj.status = false;
-            },2000);
-            // this.$router.push({ path: '/rolelist' });
+                self.$router.push({ path: '/networkgraph' });
+            },1000);
         },
         HideNotify: function(){
             this.NotifyObj.state = false;

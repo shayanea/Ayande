@@ -9,10 +9,6 @@
                         <label for="RoleName">نام نقش</label>
                         <input type="text" class="form-control" id="RoleName" v-model="role.name"/>
                     </div>
-                    <div class="form-group">
-                        <label for="Description">شرح مختصر</label>
-                        <textarea type="text" class="form-control" id="Description" v-model="role.description" rows="5"></textarea>
-                    </div>
                     <div class="form-group access-table">
                         <label>دسترسی به امکانات و زیرسیستم ها</label>
                         <table class="table table-striped">
@@ -59,6 +55,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="form-group">
+                        <label for="Description">شرح مختصر</label>
+                        <textarea type="text" class="form-control" id="Description" v-model="role.description" rows="5"></textarea>
                     </div>
                     <div class="form-group">
                         <div class="checkbox">

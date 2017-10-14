@@ -16,7 +16,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index) of this.$store.state.report" :key="index">
+                            <tr v-for="(item, index) of data" :key="index">
                                 <td>{{item.id}}</td>
                                 <td>{{item.title}}</td>
                                 <td>{{item.createdate}}</td>
@@ -66,11 +66,14 @@ import Notify from '../components/global/notify'
 import NewReport from '../components/category/newreport'
 import UserAccess from '../components/category/useraccess'
 
+import Data from '../../static/role.json'
+
 export default {
     name:'categoryreportlist',
     data () {
         return {
             totalItems: this.$store.state.report.length,
+            data: Data,
             pagination: { currentPage: 1 },
             setPage: function(pageNo) {
                 this.pagination.currentPage = pageNo;
@@ -100,7 +103,7 @@ export default {
     },
     methods: {
         ViewReport: function(item) {
-
+            this.$router.push({ path: '/customdashboard' });
         },
         AccessUser: function(item) {
             this.AccessModal.status = true;

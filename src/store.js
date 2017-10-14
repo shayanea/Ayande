@@ -162,7 +162,7 @@ const state = {
             name: 'UserManager',
             description: 'مدیر کاربران سیستم',
             createdate: '۱۷ دی ۱۳۹۵',
-            active: true        
+            active: true
         }, {
             id: 1,
             name: 'ReportManager',
@@ -234,7 +234,7 @@ const state = {
     access: [
         {
             id: 0,
-            title: "مدیریت دسته ها پ گروه های گزارش ها و نماها",
+            title: "مدیریت دسته ها و گروه های گزارش ها و نماها",
             property: {
                 view: false,
                 add: false,
@@ -358,7 +358,7 @@ const state = {
             title: 'تاریخ اختتام حساب'
         }
     ],
-    nodetype:[
+    nodetype: [
         {
             id: 0,
             title: 'گره اصلی'
@@ -476,6 +476,93 @@ const state = {
             lastupdate: '۲۲ شهریور ۱۳۹۵',
         }
     ],
+    nodes: [
+        {
+            "id": 0,
+            "name": " ",
+            "_cssClass": "minimal-node",
+            "_color": "#666",
+            "_labelClass": "node-title"
+        }, {
+            "id": 1,
+            "name": "مشتری",
+            "_cssClass": "main-node",
+            "_color": "#666",
+            "_labelClass": "node-title"
+        },
+        {
+            "id": 2,
+            "name": "محصول",
+            "_cssClass": "main-node",
+            "_color": "#666",
+            "_labelClass": "node-title"
+        },
+        {
+            "id": 3,
+            "name": "کانال",
+            "_cssClass": "main-node",
+            "_color": "#666",
+            "_labelClass": "node-title"
+        },
+        {
+            "id": 1001,
+            "name": " ",
+            "_cssClass": "minimal-node",
+            "_color": "#666",
+            "_labelClass": "node-title"
+        },
+        {
+            "id": 1002,
+            "name": " ",
+            "_cssClass": "minimal-node",
+            "_color": "#666",
+            "_labelClass": "node-title"
+        }, {
+            "id": 1003,
+            "name": " ",
+            "_cssClass": "minimal-node",
+            "_color": "#666",
+            "_labelClass": "node-title"
+        },
+    ],
+    links: [
+        {
+            "sid": 1,
+            "tid": 0
+        },
+        {
+            "sid": 2,
+            "tid": 0
+        },
+        {
+            "sid": 3,
+            "tid": 0
+        },
+        {
+            "sid": 1001,
+            "tid": 1
+        },
+        {
+            "sid": 1001,
+            "tid": 2
+        },
+        {
+            "sid": 1002,
+            "tid": 2
+        },
+        {
+            "sid": 1002,
+            "tid": 3
+        },
+        {
+            "sid": 1003,
+            "tid": 3
+        },
+        {
+            "sid": 1003,
+            "tid": 1
+        }
+    ],
     editroleobj: null,
 
     showbgwrapper: false,
@@ -489,13 +576,13 @@ const mutations = {
         state.sidenotification = !state.sidenotification;
     },
 
-    ShowCreateModel: function(state) {
+    ShowCreateModel: function (state) {
         state.showcreatemodal = !state.showcreatemodal;
     },
-    ShowCreateView: function(state) {
+    ShowCreateView: function (state) {
         state.showcreateview = !state.showcreateview;
     },
-    ShowBgWrapper: function(state) {
+    ShowBgWrapper: function (state) {
         state.showbgwrapper = !state.showbgwrapper;
     }
 }

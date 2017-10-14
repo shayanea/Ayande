@@ -113,7 +113,7 @@ export default {
         AddNewUser: function() {
             this.UserModal = {
                 status: true,
-                data : false
+                data : null
             }  
         },
         CloseUserInfoModal: function() {

@@ -2,7 +2,7 @@
     <div class="pin-notifications">
         <ul>
             <li class="active">{{this.$store.state.profile.name}} عزیز، به پنل شخصی خود در نبض آینده خوش آمدید.</li>
-            <li>شما <span class="number">{{this.$store.state.pin.length}}</span> پیام یا اعلان جدید دارید.</li>
+            <li>شما <span class="number" @click="Show">{{this.$store.state.pin.length}}</span> پیام یا اعلان جدید دارید.</li>
         </ul>
     </div>
 </template>
@@ -14,6 +14,11 @@ export default {
         return {
 
         }
+    },
+    methods: {
+        Show: function() {
+            this.$store.commit('OpenSideNotification');
+        }
     }
 }
 </script>
@@ -23,9 +28,9 @@ export default {
     border-radius: 6px;
     background: #ddd;
     list-style: none;
-    margin: 25px;
+    margin-bottom: 25px;
     float: right;
-    width: calc(100% - 50px);
+    width: 100%;
 }
 
 .pin-notifications ul{
@@ -74,6 +79,7 @@ export default {
     font-size: 10px;
     background: #f63756;
     font-family: 'Number'!important;
+    cursor: pointer;
 }
 </style>
 

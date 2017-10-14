@@ -5,7 +5,7 @@
             <li>
                 <form>
                     <div class="form-group">
-                        <input class="form-control" v-model="text" @keyup="Search" />
+                        <input class="form-control" v-model="text" @keyup="Search" placeholder="جستجو کاربر" />
                     </div>
                 </form>
             </li>

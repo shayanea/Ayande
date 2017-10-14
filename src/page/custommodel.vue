@@ -20,7 +20,7 @@
                     <div class="text">فیلد نتایج جدید</div>
                 </button>
                 <button class="btn action_btn" @click="ShowQuery">
-                    <div class="text">کویری دلخواه</div>
+                    <div class="text">کوئری دلخواه</div>
                 </button>
                 <div class="row" style="margin-top:20px;float:right;width:100%;">
                     <div class="col-md-10 col-sm-10 col-xs-12 tbl">
