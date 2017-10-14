@@ -1,5 +1,5 @@
 <template>
-    <div :class="{'active': show}" class="modal">
+    <div :class="{'active': show}" class="modal" style="z-index:99999">
         <div class="modal-content">
             <div class="modal-header">
                 <svg version="1.1" class="close-modal" @click="Close" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 47.971 47.971" style="enable-background:new 0 0 47.971 47.971;" xml:space="preserve">
@@ -8,15 +8,13 @@
                     C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879
                     s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z" />
                 </svg>
-                <h4 class="modal-title">درج نما به دشبورد</h4>
+                <h4 class="modal-title">ذخیره مدل جدید</h4>
             </div>
             <div class="modal-body">
                 <form @submit.prevent="Save">
                     <div class="form-group">
-                        <label for="ParameterName">فهرست نماها</label>
-                        <select class="form-control" v-model="SelectedView">
-                            <option v-for="(item, index) of this.$store.state.views" :key="index" :value="item.title">{{item.title}}</option>
-                        </select>
+                        <label>نام مدل</label>
+                        <input class="form-control" type="text"/>
                     </div>
                     <div class="form-group">
                         <label for="users">لیست کاربران مجاز برای مشاهده</label>
@@ -37,7 +35,7 @@
                         </select>
                         <div class="selected-list" v-if="SelectedRoles.length > 0">
                             <div class="selected-item" v-for="(item, index) of SelectedRoles" :key="index">
-                                {{item.role}}
+                                {{item.name}}
                                 <span class="remove-item" @click="RemoveRole(item)"></span>
                             </div>
                         </div>
@@ -46,7 +44,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" @click="Close">انصراف</button>
-                <button type="button" class="btn btn-primary" @click="Save">درج نما</button>
+                <button type="button" class="btn btn-primary" @click="Save">ذخیره مدل</button>
             </div>
         </div>
     </div>
@@ -54,7 +52,7 @@
 
 <script>
 export default {
-    name: 'savenewdashboard',
+    name: 'savenewmodel',
     props: {
         show: {
             required: true,
@@ -65,14 +63,13 @@ export default {
         return {
             User:null,
             Role:null,
-            SelectedView:null,
             SeletedUsers:[],
             SelectedRoles:[]
         }
     },
     methods: {
         Close: function() {
-            this.$emit('closenewitemmodal',true);
+            this.$emit('closenewmodel',true);
         },
         AddUser: function() {
             this.SeletedUsers.push({username:this.User.username,id: this.User.id})
@@ -81,13 +78,13 @@ export default {
             this.SeletedUsers = _.reject(this.SeletedUsers, {'id': item.id});
         },
         AddRole: function() {
-            this.SelectedRoles.push({role:this.Role.description,id: this.Role.id})
+            this.SelectedRoles.push({name:this.Role.name,id: this.Role.id})
         },
         RemoveRole: function(item) {
             this.SelectedRoles = _.reject(this.SelectedRoles, {'id': item.id});
         },
         Save: function() {
-            this.$emit('savenewitem',true);
+            this.$emit('savenewmodel',true);
         }
     }
 }

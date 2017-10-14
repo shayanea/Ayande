@@ -23,7 +23,10 @@ export default {
             
         },
         AddNewView: function() {
-
+            if(!this.$store.state.showbgwrapper){
+                this.$store.commit('ShowBgWrapper');
+            }
+            this.$store.commit('ShowCreateView');
         }
     }
 }

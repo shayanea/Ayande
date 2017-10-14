@@ -211,8 +211,8 @@ export default {
     cursor: pointer;
 }
 
-.pagination>li>a,
-.pagination>li>span {
+.report-table .pagination>li>a,
+.report-table .pagination>li>span {
     border: 0;
     background-color: #eaeaea;
     margin: 0 5px;
@@ -220,22 +220,22 @@ export default {
     color: #222;
 }
 
-.pagination>.disabled>span,
-.pagination>.disabled>span:hover,
-.pagination>.disabled>span:focus,
-.pagination>.disabled>a,
-.pagination>.disabled>a:hover,
-.pagination>.disabled>a:focus {
+.report-table .pagination>.disabled>span,
+.report-table .pagination>.disabled>span:hover,
+.report-table .pagination>.disabled>span:focus,
+.report-table .pagination>.disabled>a,
+.report-table .pagination>.disabled>a:hover,
+.report-table .pagination>.disabled>a:focus {
     background-color: #999;
     color: #666;
 }
 
-.pagination>.active>a,
-.pagination>.active>span,
-.pagination>.active>a:hover,
-.pagination>.active>span:hover,
-.pagination>.active>a:focus,
-.pagination>.active>span:focus {
+.report-table .pagination>.active>a,
+.report-table .pagination>.active>span,
+.report-table .pagination>.active>a:hover,
+.report-table .pagination>.active>span:hover,
+.report-table .pagination>.active>a:focus,
+.report-table .pagination>.active>span:focus {
     background-color: #ffc72f;
     color: #222;
 }

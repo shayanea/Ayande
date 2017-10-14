@@ -1,9 +1,9 @@
 <template>
     <div class="container-fluid boards-list">
-        <!-- <div class="board" v-for="(item, index) of chart" :key="index" v-if="empty">
+        <div class="board" v-for="(item, index) of items" :key="index">
             <LineChart v-if="item.type == 'spline' || item.type == 'line'" :list="item.data" :title="item.title" :type="item.type" :labeltext="item.labeltext" :labelstatus="item.labelstatus" :marker="item.marker" :timeline="item.time"
             :suffix="item.suffix"></LineChart>
-        </div>  -->
+        </div> 
         <div class="add-new-dashboard-item" @click="AddNewItem">
             <span></span>
         </div>
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import LineChart from '../chart/linechart'
+
 export default {
     name:'items',
     props: {
@@ -23,6 +25,9 @@ export default {
         return {
 
         }
+    },
+    components: {
+        LineChart
     },
     methods: {
         AddNewItem: function() {

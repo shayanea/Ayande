@@ -16,19 +16,11 @@
             <div class="text">دشبورد جدید</div>
             <span class="plus-icon"></span>
         </router-link>
-
-        <CreateModel></CreateModel>
-
-        <CreateView></CreateView>
-
     </div>
 </template>
 
 <script>
 import PinList from './pindashboardlist'
-
-import CreateView from '../view/popup'
-import CreateModel from '../model/popup'
 
 export default {
     name:'toolbar',
@@ -37,10 +29,7 @@ export default {
         }
     },
     components: {
-        PinList,
-
-        CreateView,
-        CreateModel,
+        PinList
     },
     methods: {
         ShowView: function() {

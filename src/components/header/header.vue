@@ -44,7 +44,6 @@ export default {
         }
     },
     created(){
-        console.log(this.$route);
         if(this.$route.name == 'login' || this.$route.name == 'forgetpass'){
             return this.Show = false
         }

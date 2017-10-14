@@ -6,10 +6,8 @@
 
         <NewItemModal :show="ShowNewItemModal" @savenewitem="AddNewItem" @closenewitemmodal="CloseNewItemModal"></NewItemModal>
 
-        <!-- modal for save dashboard -->
         <SaveModal :show="ShowSaveDashboardModal" @savenewdashboard="SaveNewDashboard" @closesavenewdashboard="CloseSaveNewDashboard"></SaveModal>
 
-        <!-- save new dashboard tooltip -->
         <div class="save-new-dashboard">
             <div class="save-dashboaard-btn" @click="SaveDashboard">
                 ذخیره دشبورد
@@ -62,7 +60,9 @@ export default {
             this.ShowNewItemModal = true;
         },
         AddNewItem: function() {
-            
+            console.log('add');
+            this.ShowNewItemModal = false;
+            this.Items.push({ title: 'روند کل مانده سپرده آینده ساز', suffix: ' ریال', marker: false, type: 'spline', labeltext: 'مانده', labelstatus: true, data: {series:[75156297, 75281285, 75407194, 75575977, 75620583, 75770899, 75861813, 76048850, 76265894, 76407894, 76518405, 76659862, 76835274, 77156891, 77370932, 77623502, 77777966]},time: ['96/04/14', '96/04/15', '96/04/17', '96/04/18', '96/04/19', '96/04/20', '96/04/21','96/04/22', '96/04/23', '96/04/24', '96/04/25', '96/04/25', '96/04/26', '96/04/27', '96/04/28','96/04/29', '96/04/30', '96/04/31', '96/05/01', '96/05/02', '96/05/03', '96/05/04', '96/05/05']});
         },
         CloseNewItemModal: function() {
             this.ShowNewItemModal = false;

@@ -44,7 +44,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" @click="Close">انصراف</button>
-                <button type="button" class="btn btn-primary">ذخیره دشبورد</button>
+                <button type="button" class="btn btn-primary" @click="Save">ذخیره دشبورد</button>
             </div>
         </div>
     </div>

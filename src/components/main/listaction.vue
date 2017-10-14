@@ -31,7 +31,7 @@
             </router-link>
         </li>
         <li>
-            <router-link :to="{ path: ''}">
+            <router-link :to="{ path: 'categoryreportlist'}">
                 <span>مدیریت<br>دسته بندی های<br>گزارش ها</span>
             </router-link>
         </li>

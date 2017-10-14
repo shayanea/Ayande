@@ -142,6 +142,9 @@
 
         <!-- Merge Popup -->
         <Merge :show="showmerge" @savemerge="SaveMerge" @closmerge="CloseMerge"></Merge>
+
+        <!-- Save Popup -->
+        <Save :show="shownewmodel" @savenewmodel="SaveNewModel" @closenewmodel="CloseNewModel"></Save>
         
     </div>
 </template>
@@ -151,6 +154,7 @@ import Query from '../components/model/query'
 import AddCl from '../components/model/addcolumn'
 import Aggrigate from '../components/model/aggrigate'
 import Merge from '../components/model/merge'
+import Save from '../components/model/save'
 
 export default {
     name: 'model',
@@ -161,6 +165,7 @@ export default {
             showag: false,
             showmerge: false,
             switchstatus: false,
+            shownewmodel: false,
             removetdindex: [],
             list: [
                 {
@@ -479,7 +484,8 @@ export default {
         Query,
         AddCl,
         Aggrigate,
-        Merge
+        Merge,
+        Save
     },
     methods: {
         Find(index){
@@ -570,7 +576,17 @@ export default {
             this.showmerge = false;
             this.$store.commit('ShowBgWrapper');
         },
+        CloseNewModel: function() {
+            this.shownewmodel = false;  
+            this.$store.commit('ShowBgWrapper');
+        },
         Save: function() {
+            this.$store.commit('ShowBgWrapper');
+            this.shownewmodel = true;
+        },
+        SaveNewModel: function() {
+            this.shownewmodel = false;  
+            this.$store.commit('ShowBgWrapper');
             this.$router.push({ path: '/modellist' });
         }
     }

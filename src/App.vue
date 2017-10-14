@@ -7,7 +7,10 @@
 	@top="handleScroll">
 		<div id="app">
 			<FixedHeader></FixedHeader>
-			<router-view></router-view> 	
+			<router-view></router-view>
+
+			<CreateModel></CreateModel>
+        	<CreateView></CreateView>
 			<BgWrapper :show="this.$store.state.showbgwrapper"></BgWrapper>
 		</div>
 	</v-bar>	 
@@ -17,6 +20,8 @@
 import VBar from 'v-bar'
 import FixedHeader from './components/header/header'
 
+import CreateView from './components/view/popup'
+import CreateModel from './components/model/popup'
 import BgWrapper from './components/global/bgwrapper'
 
 export default {
@@ -29,7 +34,9 @@ export default {
 	components:{
 		VBar,
 		FixedHeader,
-		BgWrapper
+		BgWrapper,
+		CreateView,
+		CreateModel
 	},
 	methods: {
         handleScroll (top) {

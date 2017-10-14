@@ -5,7 +5,9 @@
         </div>
         <ul class="pindashboard-box">
             <li v-for="(item, index) of this.$store.state.pin" :key="index" :class="{'active' : item.active}">
-                <div class="pindashboard-box-name">{{item.name}}</div>
+                <router-link class="pindashboard-box-name" :to="{ path: 'customdashboard'}">
+                    {{item.name}}
+                </router-link>
             </li>
         </ul>
     </div>

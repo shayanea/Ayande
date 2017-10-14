@@ -25,20 +25,12 @@
         <UserInfo :show="UserModal.status" @closeuserinfomodal="CloseUserInfoModal" @saveorupdate="SaveOrUpdateUser" :items="UserModal.data"></UserInfo>
 
         <Notify :message="NotifyObj.message" :show="NotifyObj.status"></Notify>
-
-        <CreateModel></CreateModel>
-
-        <CreateView></CreateView>
-
     </div>
 </template>
 
 <script>
 import UserInfo from '../user/userinfomodal'
 import Notify from '../global/notify'
-
-import CreateView from '../view/popup'
-import CreateModel from '../model/popup'
 
 export default {
     name: 'listmethod',
@@ -56,10 +48,7 @@ export default {
     },
     components: {
         UserInfo,
-        Notify,
-
-        CreateView,
-        CreateModel,
+        Notify
     },
     methods: {
         ShowView: function() {
