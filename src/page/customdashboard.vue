@@ -6,7 +6,7 @@
                 :suffix="item.suffix"></LineChart>
                 <PieChart v-if="item.type == 'pie'" :list="item.data" :title="item.title" :type="item.type" :labeltext="item.labeltext" :labelstatus="item.labelstatus" :marker="item.marker" :timeline="item.time"
                 :suffix="item.suffix"></PieChart>
-                <GridTable v-if="item.type == 'table'" :list="item.data" :title="item.title"></GridTable>
+                <GridTable v-if="item.type == 'table'" :list="item.rows" :title="item.title" :header="item.header"></GridTable>
             </div> 
         </div>
     </div>

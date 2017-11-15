@@ -13,6 +13,9 @@ import AddRole from '@/page/addrole'
 import RoleList from '@/page/rolelist'
 import AddCategory from '@/page/addcategory'
 import CategoryReportList from '@/page/categoryreportlist'
+import GraphList from '@/page/graphlist'
+import NewGraph from '@/page/newgraph'
+import Dashboard from '@/page/dashboard'
 
 import CustomDashboard from '@/page/customdashboard'
 import DefaultModel from '@/page/custommodel'
@@ -82,11 +85,25 @@ export default new Router({
 			component: AddCategory
 		},
 		{
-			path: '/categoryreportlist',
+			path: '/categoryreportlist/:id',
 			name: 'categoryreportlist',
 			component: CategoryReportList
 		},
-
+		{
+			path: '/graphlist',
+			name: 'graphlist',
+			component: GraphList
+		},
+		{
+			path: '/newgraph',
+			name: 'newgraph',
+			component: NewGraph
+		},
+		{
+			path: '/dashboard/:id/:parentid',
+			name: 'dashboard',
+			component: Dashboard
+		},
 
 		{
 			path: '/customdashboard',

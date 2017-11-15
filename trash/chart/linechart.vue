@@ -213,10 +213,13 @@ export default {
     fill: #999!important;
 }
 
-.highcharts-xaxis-labels text,
-.highcharts-data-label text tspan,
 .pie_chart .highcharts-legend-item text tspan{
-    font-family: 'Number'!important;
+    font-family: "IRANSANS"!important;
+}
+
+.highcharts-xaxis-labels text,
+.highcharts-data-label text tspan,{
+    font-family: 'IRANSANS'!important;
 }
 
 .highcharts-data-label text tspan{

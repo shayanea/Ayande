@@ -36,10 +36,6 @@ export default {
             required: true,
             default: false
         },
-        timeline: {
-            required: true,
-            default: []
-        },
         suffix: {
             required: true,
             default:''
@@ -91,8 +87,11 @@ export default {
                         cursor: 'pointer',
                         dataLabels: {
                             enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            connectorColor: 'silver'
+                            format: '<b>{point.name}</b>',
+                            connectorColor: 'silver',
+                            style: {
+                                color: '#000'
+                            }
                         },
                         showInLegend: true
                     }

@@ -1,7 +1,6 @@
 <template>
     <div class="main">
         <Toolbar></Toolbar>
-
         <div class="report-content">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12 report-table">
@@ -17,7 +16,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(item, index) of data" :key="index">
-                                <td>{{item.id}}</td>
+                                <td>{{item.id + 1}}</td>
                                 <td>{{item.title}}</td>
                                 <td>{{item.createdate}}</td>
                                 <td>{{item.lastupdate}}</td>
@@ -36,12 +35,14 @@
                             </tr>
                         </tbody>
                     </table>
-                    <uib-pagination v-model="pagination" :items-per-page="10" :total-items="totalItems" :max-size="maxSize" class="pagination-sm" :boundary-link-numbers="false" :direction-links="true" :rotate="false" :next-text="'بعدی'" :previous-text="'قبلی'"></uib-pagination>
+                    <uib-pagination v-model="pagination" :items-per-page="8" :total-items="totalItems" 
+                    class="pagination-sm" :boundary-link-numbers="false" :direction-links="true" 
+                    :rotate="false" :next-text="'بعدی'" :previous-text="'قبلی'" @change="PaginateChange"></uib-pagination>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
                     <div class="total-report-info">
                         <span> گزارش ها موجود در دسته بندی</span>
-                        <h2><span class="number">{{this.$store.state.report.length}}</span> گزارش</h2>
+                        <h2><span class="number">{{totalItems}}</span> گزارش</h2>
                         <div class="add-new-report" @click="AddNewReport()">
                             درج گزارش ها به دسته بندی
                         </div>
@@ -65,23 +66,14 @@ import Toolbar from '../components/category/reportlist'
 import Notify from '../components/global/notify'
 import NewReport from '../components/category/newreport'
 import UserAccess from '../components/category/useraccess'
-
-import Data from '../../static/role.json'
+import CustomeData from '../../static/custome.json'
 
 export default {
     name:'categoryreportlist',
     data () {
         return {
-            totalItems: this.$store.state.report.length,
-            data: Data,
             pagination: { currentPage: 1 },
-            setPage: function(pageNo) {
-                this.pagination.currentPage = pageNo;
-            },
-            pageChanged: function() {
-                console.log('Page changed to: ' + this.pagination.currentPage);
-            },
-            maxSize: 5,
+            maxSize: 8,
             searchtext: '',
             ReportModal: {
                 status: false
@@ -92,7 +84,10 @@ export default {
             NotifyObj: {
                 status: false,
                 message: ''
-            }
+            },
+            result: [],
+            data: [],
+            parentId: null
         }
     },
     components: {
@@ -101,9 +96,20 @@ export default {
         NewReport,
         UserAccess
     },
+    created() {
+        let result = _.find(CustomeData, {id:parseInt(this.$route.params.id)});
+        this.data = result.data.slice(0,this.maxSize);
+        this.parentId = result.id;
+        this.totalItems = result.data.length;
+    },
     methods: {
+        PaginateChange: function() {
+            let result = _.find(CustomeData, {id:parseInt(this.$route.params.id)});
+            let offset = this.pagination.currentPage * this.maxSize;
+            return this.data = result.data.slice((this.pagination.currentPage - 1) * this.maxSize, this.maxSize + ((this.pagination.currentPage - 1) * this.maxSize));
+        },
         ViewReport: function(item) {
-            this.$router.push({ path: '/customdashboard' });
+            this.$router.push({ path: `/dashboard/${item.id}/${this.parentId}` });
         },
         AccessUser: function(item) {
             this.AccessModal.status = true;

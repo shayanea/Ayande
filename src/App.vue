@@ -38,6 +38,12 @@ export default {
 		CreateView,
 		CreateModel
 	},
+	mounted () {
+		if(window.navigator.userAgent.indexOf("Mac") == -1){
+			var main = document.getElementById("app");
+			main.className += " window";
+		}
+	},
 	methods: {
         handleScroll (top) {
 			if(top>= 30){
@@ -54,5 +60,9 @@ export default {
 .wrapper{
 	height: 100%;
 	width: 100%;
+}
+
+#app.window{
+	padding-right: 0!important;
 }
 </style>

@@ -153,7 +153,7 @@ export default {
 }
 
 .dropdown-menu li {
-    padding: 0;
+    padding: 0!important;
     width: 100%;
     background-color: #fff;
     border-bottom: 1px solid #eee;

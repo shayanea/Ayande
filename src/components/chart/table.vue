@@ -6,106 +6,16 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ردیف</th>
-                        <th>شعبه های برتر</th>
-                        <th>کد شعبه</th>
-                        <th>مانده</th>
-                        <th>تغییرات مانده</th>
-                        <th>تعداد</th>
-                        <th>تغییرات تعداد</th>
-                        <th>میانگین</th>
+                        <th v-for="(item, index) of header" :key="index">
+                            {{item}}
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td scope="row">1</td>
-                        <td>تهران - نارمک- خیابان آیت</td>
-                        <td class="number">214</td>
-                        <td class="number">1,554,707</td>
-                        <td class="number">3,508</td>
-                        <td class="number">4,025</td>
-                        <td class="number">-9</td>
-                        <td class="number">386</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td>کرج - جهانشهر</td>
-                        <td class="number">1703</td>
-                        <td class="number">1,130,480</td>
-                        <td class="number">3,075</td>
-                        <td class="number">2,382</td>
-                        <td class="number">0</td>
-                        <td class="number">475</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">3</td>
-                        <td>تهران - آیت الله کاشانی -  تقاطع اباذر</td>
-                        <td class="number">222</td>
-                        <td class="number">1,115,587</td>
-                        <td class="number">1,099</td>
-                        <td class="number">2,014</td>
-                        <td class="number">-11</td>
-                        <td class="number">554</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">4</td>
-                        <td>اصفهان - سی و سه پل </td>
-                        <td class="number">1103</td>
-                        <td class="number">1,092,186</td>
-                        <td class="number">4,781</td>
-                        <td class="number">2,459</td>
-                        <td class="number">0</td>
-                        <td class="number">444</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">5</td>
-                        <td>تهران - فرمانیه </td>
-                        <td class="number">207</td>
-                        <td class="number">1,069,521</td>
-                        <td class="number">535,23</td>
-                        <td class="number">1,190</td>
-                        <td class="number">-5</td>
-                        <td class="number">899</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">6</td>
-                        <td>اهواز - کیانپارس </td>
-                        <td class="number">2,102</td>
-                        <td class="number">450,631</td>
-                        <td class="number">1,369</td>
-                        <td class="number">1735</td>
-                        <td class="number">-7</td>
-                        <td class="number">260</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">7</td>
-                        <td>تهران - سهروردی - آجودانی</td>
-                        <td class="number">1,186</td>
-                        <td class="number">446,347</td>
-                        <td class="number">881</td>
-                        <td class="number">827</td>
-                        <td class="number">-2</td>
-                        <td class="number">540</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">8</td>
-                        <td>کرمانشاه - میدان فردوسی</td>
-                        <td class="number">2,401</td>
-                        <td class="number">443,857</td>
-                        <td class="number">-209</td>
-                        <td class="number">1311</td>
-                        <td class="number">0</td>
-                        <td class="number">339</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">9</td>
-                        <td>تهران - بلوار کشاورز </td>
-                        <td class="number">1,236</td>
-                        <td class="number">442,527</td>
-                        <td class="number">-355</td>
-                        <td class="number">1015</td>
-                        <td class="number">-4</td>
-                        <td class="number">436</td>
+                    <tr v-for="(data, index) of list" :key="index">
+                        <td v-for="(item, index) of data" :key="index">
+                            {{item}}
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -122,6 +32,14 @@ export default {
         title: {
             required: true,
             default: ''
+        },
+        header: {
+            required: true,
+            default: null
+        },
+        list: {
+            required: true,
+            default: null
         }
     },
     data () {

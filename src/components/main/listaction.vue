@@ -1,7 +1,7 @@
 <template>
     <ul class="list-action">
         <li>
-            <router-link :to="{ path: 'networkgraph'}">
+            <router-link :to="{ path: 'graphlist'}">
                 <span>پیمایش<br> موجودیت ها</span>
             </router-link>
         </li>
@@ -31,7 +31,7 @@
             </router-link>
         </li>
         <li>
-            <router-link :to="{ path: 'categoryreportlist'}">
+            <router-link :to="{ path: 'categoryreportlist/0'}">
                 <span>مدیریت<br>دسته بندی های<br>گزارش ها</span>
             </router-link>
         </li>

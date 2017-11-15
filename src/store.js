@@ -480,47 +480,47 @@ const state = {
         {
             "id": 0,
             "name": " ",
-            "_cssClass": "minimal-node",
+            "_cssClass": "7 minimal-node",
             "_color": "#666",
             "_labelClass": "node-title"
         }, {
             "id": 1,
             "name": "مشتری",
-            "_cssClass": "main-node",
+            "_cssClass": "1 main-node",
             "_color": "#666",
             "_labelClass": "node-title"
         },
         {
             "id": 2,
             "name": "محصول",
-            "_cssClass": "main-node",
+            "_cssClass": "2 main-node",
             "_color": "#666",
             "_labelClass": "node-title"
         },
         {
             "id": 3,
             "name": "کانال",
-            "_cssClass": "main-node",
+            "_cssClass": "3 main-node",
             "_color": "#666",
             "_labelClass": "node-title"
         },
         {
             "id": 1001,
             "name": " ",
-            "_cssClass": "minimal-node",
+            "_cssClass": "6 minimal-node",
             "_color": "#666",
             "_labelClass": "node-title"
         },
         {
             "id": 1002,
             "name": " ",
-            "_cssClass": "minimal-node",
+            "_cssClass": "4 minimal-node",
             "_color": "#666",
             "_labelClass": "node-title"
         }, {
             "id": 1003,
             "name": " ",
-            "_cssClass": "minimal-node",
+            "_cssClass": "5 minimal-node",
             "_color": "#666",
             "_labelClass": "node-title"
         },
@@ -561,6 +561,16 @@ const state = {
         {
             "sid": 1003,
             "tid": 1
+        }
+    ],
+    graphs: [
+        {
+            id: 0,
+            title: 'پیمایش کانال محصول مشتری'
+        },
+        {
+            id: 1,
+            title: 'پیمایش مسو'
         }
     ],
     editroleobj: null,

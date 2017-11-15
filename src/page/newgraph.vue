@@ -5,9 +5,9 @@
             <ClickOutside :handler="Hide" v-show="context.show">
                 <ul class="context-menu" :style="{top: context.top, left: context.left}">
                     <li>
-                        <a @click="OpenCategory">
+                        <router-link :to="{ path: 'categoryreportlist'}">
                             مشاهده گزارش ها 
-                        </a>
+                        </router-link>
                     </li>
                     <li>
                         <a @click="EditCategory">
@@ -41,15 +41,22 @@ export default {
     name: 'networkgraph',
     data() {
         return {
-            nodes: this.$store.state.nodes,
-            links: this.$store.state.links,
+            nodes: [
+                {
+                    "id": 0,
+                    "name": "گره اصلی",
+                    "_cssClass": "main-node",
+                    "_color": "#666",
+                    "_labelClass": "node-title"
+                }
+            ],
+            links: [],
             nodeSize: 40,
             context:{
                 top: 0,
                 left: 0,
                 show: false
-            },
-            selectedId: null
+            }
         }
     },
     components: {
@@ -96,16 +103,12 @@ export default {
                     left: (e.pageX - 150) + "px",
                     show: true
                 }
-                this.selectedId = e.path[0].classList[0];
             }else{
                 this.context.show = false;
             }
         },
         Hide: function() {
             this.context.show = false;
-        },
-        OpenCategory: function() {
-            this.$router.push({ path: `/categoryreportlist/${this.selectedId}`});
         },
         EditCategory: function() {
             this.$store.state.editroleobj = true;
