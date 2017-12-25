@@ -100,7 +100,7 @@ export default new Router({
 			component: NewGraph
 		},
 		{
-			path: '/dashboard/:id/:parentid',
+			path: '/dashboard/:parentid/:id',
 			name: 'dashboard',
 			component: Dashboard
 		},

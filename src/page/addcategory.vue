@@ -89,7 +89,6 @@ export default {
     },
     mounted (){
         if(this.$store.state.editroleobj){
-            // return this.role = this.$store.state.editroleobj;
             return this.category = {
                 active: true,
                 name: 'محصول',

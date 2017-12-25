@@ -38,9 +38,7 @@ export default {
     },
     methods: {
         Hide : function() {
-            if(this.$store.state.sidenotification){
-                this.$store.commit('OpenSideNotification');
-            }
+            if(this.$store.state.sidenotification) this.$store.commit('OpenSideNotification')
         }
     }
 }

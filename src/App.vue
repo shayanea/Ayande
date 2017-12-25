@@ -40,13 +40,13 @@ export default {
 	},
 	mounted () {
 		if(window.navigator.userAgent.indexOf("Mac") == -1){
-			var main = document.getElementById("app");
+			let main = document.getElementById("app");
 			main.className += " window";
 		}
 	},
 	methods: {
         handleScroll (top) {
-			if(top>= 30){
+			if(top >= 30){
 				this.$store.commit('ScrollEvent',true);
 			}else{
 				this.$store.commit('ScrollEvent',false);

@@ -33,15 +33,11 @@ export default {
     },
     methods: {
         ShowView: function() {
-            if(!this.$store.state.showbgwrapper){
-                this.$store.commit('ShowBgWrapper');
-            }
+            if(!this.$store.state.showbgwrapper) this.$store.commit('ShowBgWrapper')
             this.$store.commit('ShowCreateView');
         },
         ShowCreateModel: function() {
-            if(!this.$store.state.showbgwrapper){
-                this.$store.commit('ShowBgWrapper');
-            }
+            if(!this.$store.state.showbgwrapper) this.$store.commit('ShowBgWrapper')
             this.$store.commit('ShowCreateModel');
         }
     }

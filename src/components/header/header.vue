@@ -35,18 +35,12 @@ export default {
         Toolbar
     },
     watch: {
-        '$route' : function(current) {
-            if(current.name == 'login' || current.name == 'forgetpass'){
-                this.Show = false
-            }else{
-                this.Show = true
-            }
+        '$route' : function (current){
+            return this.Show = (current.name == 'login' || current.name == 'forgetpass') ? false : true;
         }
     },
     created(){
-        if(this.$route.name == 'login' || this.$route.name == 'forgetpass'){
-            return this.Show = false
-        }
+        this.Show = (this.$route.name == 'login' || this.$route.name == 'forgetpass') ? false : true;
     }
 }
 </script>

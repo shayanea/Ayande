@@ -100,35 +100,29 @@ export default {
         UserInfo
     },
     methods: {
-        AddNewUser: function() {
+        AddNewUser: function () {
             this.UserModal = {
                 status: true,
                 data : null
             }  
         },
-        CloseUserInfoModal: function() {
+        CloseUserInfoModal: function () {
             this.UserModal = {
                 status: false,
                 data : null
             }  
         },
-        SaveOrUpdateUser: function(user) {
+        SaveOrUpdateUser: function (user) {
             this.UserModal = {
                 status: false,
                 data : null
             }  
         },
-        AddNewModel: function() {
-            if(!this.$store.state.showbgwrapper){
-                this.$store.commit('ShowBgWrapper');
-            }
-            this.$store.commit('ShowCreateModel');
+        AddNewModel: function () {
+            this.$store.state.showbgwrapper ? this.$store.commit('ShowCreateModel') : this.$store.commit('ShowBgWrapper')
         },
-        AddNewView: function() {
-            if(!this.$store.state.showbgwrapper){
-                this.$store.commit('ShowBgWrapper');
-            }
-            this.$store.commit('ShowCreateView');
+        AddNewView: function () {
+            this.$store.state.showbgwrapper ? this.$store.commit('ShowCreateView') : this.$store.commit('ShowBgWrapper')
         }
     }
 }

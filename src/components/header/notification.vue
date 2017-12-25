@@ -15,7 +15,7 @@ export default {
         }
     },
     methods: {
-        Show: function() {
+        Show: function () {
             this.$store.commit('OpenSideNotification');
         }
     }

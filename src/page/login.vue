@@ -150,11 +150,7 @@ export default {
     },
     methods: {
         PasswordLength: function (e) {
-            if (this.user.password.length > 0) {
-                this.Show = true;
-            } else {
-                this.Show = false
-            }
+            this.Show = (this.user.password.length > 0) ? true : false;
         },
         ShowPass: function () {
             this.HaveClass = !this.HaveClass;

@@ -2,7 +2,7 @@
     <div class="main">
         <ul class="dashboard-list">
             <li v-for="(item, index) of this.$store.state.pin" :key="index" :class="{'multi': item.multiusers}">
-                <router-link :to="{ path: 'customdashboard'}">
+                <router-link :to="{ path: 'dashboard/4/null'}">
                     <span>{{item.name}}</span>
                 </router-link>
             </li>
@@ -25,9 +25,7 @@ export default {
             this.$router.push({ path: '/addnewdashboard' });
         },
         ShowNewDashboard: function (status) {
-            if(status){
-                this.$router.push({ path: '/dashboard' });
-            }
+            if(status)this.$router.push({ path: '/dashboard' })
         }
     }
 }

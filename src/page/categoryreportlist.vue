@@ -109,7 +109,7 @@ export default {
             return this.data = result.data.slice((this.pagination.currentPage - 1) * this.maxSize, this.maxSize + ((this.pagination.currentPage - 1) * this.maxSize));
         },
         ViewReport: function(item) {
-            this.$router.push({ path: `/dashboard/${item.id}/${this.parentId}` });
+            this.$router.push({ path: `/dashboard/${this.parentId}/${item.id}` });
         },
         AccessUser: function(item) {
             this.AccessModal.status = true;

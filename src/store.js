@@ -582,19 +582,10 @@ const state = {
 }
 
 const mutations = {
-    OpenSideNotification: function (state) {
-        state.sidenotification = !state.sidenotification;
-    },
-
-    ShowCreateModel: function (state) {
-        state.showcreatemodal = !state.showcreatemodal;
-    },
-    ShowCreateView: function (state) {
-        state.showcreateview = !state.showcreateview;
-    },
-    ShowBgWrapper: function (state) {
-        state.showbgwrapper = !state.showbgwrapper;
-    }
+    OpenSideNotification: (state) => state.sidenotification = !state.sidenotification,
+    ShowCreateModel: (state) => state.showcreatemodal = !state.showcreatemodal,
+    ShowCreateView: (state) => state.showcreateview = !state.showcreateview,
+    ShowBgWrapper: (state) => state.showbgwrapper = !state.showbgwrapper
 }
 
 export default new Vuex.Store({

@@ -39,13 +39,13 @@ export default {
         ClickOutside
     },
     methods: {
-        ShowDropDown: function() {
+        ShowDropDown: function () {
             this.dropdown = !this.dropdown;
         },
-        Hide: function() {
+        Hide: function () {
             this.dropdown = false;
         },
-        Logout: function() {
+        Logout: function (){
             this.$router.push({ path: '/login' });
         }
     }

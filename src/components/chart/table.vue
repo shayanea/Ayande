@@ -6,6 +6,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>ردیف</th>
                         <th v-for="(item, index) of header" :key="index">
                             {{item}}
                         </th>
@@ -13,6 +14,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(data, index) of list" :key="index">
+                        <td>{{index + 1}}</td>
                         <td v-for="(item, index) of data" :key="index">
                             {{item}}
                         </td>
@@ -40,11 +42,15 @@ export default {
         list: {
             required: true,
             default: null
+        },
+        full: {
+            required: false,
+            default: false
         }
     },
     data () {
         return {
-            Full: false
+            Full: this.full
         }
     },
     components: {

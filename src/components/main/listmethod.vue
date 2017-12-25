@@ -51,21 +51,15 @@ export default {
         Notify
     },
     methods: {
-        ShowView: function() {
-            if(!this.$store.state.showbgwrapper){
-                this.$store.commit('ShowBgWrapper');
-            }
+        ShowView: function (){
+            if(!this.$store.state.showbgwrapper) this.$store.commit('ShowBgWrapper')
             this.$store.commit('ShowCreateView');
         },
-        ShowCreateModel: function() {
-            if(!this.$store.state.showbgwrapper){
-                this.$store.commit('ShowBgWrapper');
-            }
+        ShowCreateModel: function () {
+            if(!this.$store.state.showbgwrapper) this.$store.commit('ShowBgWrapper')
             this.$store.commit('ShowCreateModel');
         },
-
-        
-        AddNewUser: function() {
+        AddNewUser: function (){
             this.UserModal = {
                 status: true,
                 data: null
@@ -94,7 +88,7 @@ export default {
                     message: 'اطلاعات کاربر با موفقیت به روزرسانی شد.'
                 }
             }
-            setTimeout(function() {
+            setTimeout(() => {
                 self.NotifyObj.status = false;
             },2000);
         }

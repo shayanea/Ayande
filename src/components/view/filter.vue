@@ -140,9 +140,7 @@ export default {
             this.$emit('showparameter',true);
         },
         Create: function() {
-            if(this.selectedaction !== null || this.selectedfeilds !== null){
-                this.list.push({title:this.selectedfeilds,type:this.selectedaction,id: this.list.length + 1});
-            }
+            if(this.selectedaction !== null || this.selectedfeilds !== null) this.list.push({title:this.selectedfeilds,type:this.selectedaction,id: this.list.length + 1})
         },
         RemoveSelected: function(item) {
             this.list = _.reject(this.list, {'id': item.id});
